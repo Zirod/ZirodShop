@@ -20,14 +20,11 @@
 // ============================================================
 
 
-$family-base: ("Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif);
-$family-mono: ("JetBrains Mono", "Fira Code", monospace);
-
 @mixin font-family($family: base) {
   @if $family == base {
     font-family: $family-base;
   } @else if $family == mono {
-    font-family: $family-base;
+    font-family: $family-mono;
   } @else {
     @error "Unknown font family `#{$family}`.";
   }
@@ -135,7 +132,7 @@ $family-mono: ("JetBrains Mono", "Fira Code", monospace);
 
 @mixin body-large {
   @include typography(
-    $size: font(body-large),
+    $size: font(body-lg),
     $weight: normal,
     $line-height: relaxed
   );
@@ -151,7 +148,7 @@ $family-mono: ("JetBrains Mono", "Fira Code", monospace);
 
 @mixin body-small {
   @include typography(
-    $size: font(body-small),
+    $size: font(body-sm),
     $weight: normal,
     $line-height: normal
   );

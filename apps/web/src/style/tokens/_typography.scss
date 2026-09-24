@@ -1,6 +1,7 @@
 
-$family-base: ("Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif);
-$family-mono: ("JetBrains Mono", "Fira Code", monospace);
+/* Familles alignées sur les polices réellement chargées par layout.tsx (next/font) */
+$family-base: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+$family-mono: var(--font-geist-mono), "Fira Code", monospace;
 
 $font: (
     // Primitive sizes

@@ -1,0 +1,389 @@
+
+> web@0.1.0 build
+> next build
+
+▲ Next.js 16.3.5 (Turbopack)
+✓ Running next.config.ts took 49ms
+
+  Creating an optimized production build ...
+Turbopack build encountered 22 warnings:
+[next]/internal/font/google/7178b3e590c64307-s.woff2
+Warning: Error while requesting resource
+Connection timed out when requesting https://fonts.gstatic.com/s/geist/v5/gyByhwUxId8gMEwSGFWNOITddY4.woff2
+
+
+./apps/web/src/style/main.scss
+Warning: Issue while running loader
+SassWarning: 139 repetitive deprecation warnings omitted.
+Run in verbose mode to see all warnings.
+
+
+./apps/web/src/style/main.scss
+Warning: Issue while running loader
+SassWarning: Deprecation Warning on line 10, column 29 of file:///home/zirod_judi/Documents/01_PROJECT/ZirodShop/node_modules/bootstrap/scss/_functions.scss:10:29:
+Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use math.unit instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+10 |     @if $prev-num == null or unit($num) == "%" or unit($prev-num) == "%" {
+
+
+../../node_modules/bootstrap/scss/_functions.scss 11:30  -assert-ascending()
+../../node_modules/bootstrap/scss/_variables.scss 494:1  @import
+src/style/main.scss 27:9                                 root stylesheet
+
+
+
+./apps/web/src/style/main.scss
+Warning: Issue while running loader
+SassWarning: Deprecation Warning on line 10, column 50 of file:///home/zirod_judi/Documents/01_PROJECT/ZirodShop/node_modules/bootstrap/scss/_functions.scss:10:50:
+Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use math.unit instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+10 |     @if $prev-num == null or unit($num) == "%" or unit($prev-num) == "%" {
+
+
+../../node_modules/bootstrap/scss/_functions.scss 11:51  -assert-ascending()
+../../node_modules/bootstrap/scss/_variables.scss 494:1  @import
+src/style/main.scss 27:9                                 root stylesheet
+
+
+
+./apps/web/src/style/main.scss
+Warning: Issue while running loader
+SassWarning: Deprecation Warning on line 176, column 10 of file:///home/zirod_judi/Documents/01_PROJECT/ZirodShop/node_modules/bootstrap/scss/_functions.scss:176:10:
+The Sass if() syntax is deprecated in favor of the modern CSS syntax.
+
+Suggestion: if(sass($l1 > $l2): divide($l1 + 0.05, $l2 + 0.05); else: divide($l2 + 0.05, $l1 + 0.05))
+
+More info: https://sass-lang.com/d/if-function
+
+176 |   @return if($l1 > $l2, divide($l1 + .05, $l2 + .05), divide($l2 + .05, $l1 + .05));
+
+
+../../node_modules/bootstrap/scss/_functions.scss 177:11  @import
+src/style/main.scss 26:9                                  root stylesheet
+
+
+
+./apps/web/src/style/main.scss
+Warning: Issue while running loader
+SassWarning: Deprecation Warning on line 184, column 9 of file:///home/zirod_judi/Documents/01_PROJECT/ZirodShop/node_modules/bootstrap/scss/_functions.scss:184:9:
+red() is deprecated. Suggestion:
+
+color.channel($color, "red", $space: rgb)
+
+More info: https://sass-lang.com/d/color-functions
+
+184 |     "r": red($color),
+
+
+../../node_modules/bootstrap/scss/_functions.scss 185:10  luminance()
+../../node_modules/bootstrap/scss/_functions.scss 174:8   contrast-ratio()
+../../node_modules/bootstrap/scss/_functions.scss 159:22  color-contrast()
+../../node_modules/bootstrap/scss/_variables.scss 846:42  @import
+src/style/main.scss 27:9                                  root stylesheet
+
+
+
+./apps/web/src/style/main.scss
+Warning: Issue while running loader
+SassWarning: Deprecation Warning on line 185, column 9 of file:///home/zirod_judi/Documents/01_PROJECT/ZirodShop/node_modules/bootstrap/scss/_functions.scss:185:9:
+green() is deprecated. Suggestion:
+
+color.channel($color, "green", $space: rgb)
+
+More info: https://sass-lang.com/d/color-functions
+
+185 |     "g": green($color),
+
+
+../../node_modules/bootstrap/scss/_functions.scss 186:10  luminance()
+../../node_modules/bootstrap/scss/_functions.scss 174:8   contrast-ratio()
+../../node_modules/bootstrap/scss/_functions.scss 159:22  color-contrast()
+../../node_modules/bootstrap/scss/_variables.scss 846:42  @import
+src/style/main.scss 27:9                                  root stylesheet
+
+
+
+./apps/web/src/style/main.scss
+Warning: Issue while running loader
+SassWarning: Deprecation Warning on line 186, column 9 of file:///home/zirod_judi/Documents/01_PROJECT/ZirodShop/node_modules/bootstrap/scss/_functions.scss:186:9:
+blue() is deprecated. Suggestion:
+
+color.channel($color, "blue", $space: rgb)
+
+More info: https://sass-lang.com/d/color-functions
+
+186 |     "b": blue($color)
+
+
+../../node_modules/bootstrap/scss/_functions.scss 187:10  luminance()
+../../node_modules/bootstrap/scss/_functions.scss 174:8   contrast-ratio()
+../../node_modules/bootstrap/scss/_functions.scss 159:22  color-contrast()
+../../node_modules/bootstrap/scss/_variables.scss 846:42  @import
+src/style/main.scss 27:9                                  root stylesheet
+
+
+
+./apps/web/src/style/main.scss
+Warning: Issue while running loader
+SassWarning: Deprecation Warning on line 190, column 12 of file:///home/zirod_judi/Documents/01_PROJECT/ZirodShop/node_modules/bootstrap/scss/_functions.scss:190:12:
+The Sass if() syntax is deprecated in favor of the modern CSS syntax.
+
+Suggestion: if(sass(divide($value, 255) < 0.04045): divide(divide($value, 255), 12.92); else: nth($_luminance-list, $value + 1))
+
+More info: https://sass-lang.com/d/if-function
+
+190 |     $value: if(divide($value, 255) < .04045, divide(divide($value, 255), 12.92), nth($_luminance-list, $value + 1));
+
+
+../../node_modules/bootstrap/scss/_functions.scss 191:13  @import
+src/style/main.scss 26:9                                  root stylesheet
+
+
+
+./apps/web/src/style/main.scss
+Warning: Issue while running loader
+SassWarning: Deprecation Warning on line 206, column 10 of file:///home/zirod_judi/Documents/01_PROJECT/ZirodShop/node_modules/bootstrap/scss/_functions.scss:206:10:
+Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.mix instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+206 |   @return mix(white, $color, $weight);
+
+
+../../node_modules/bootstrap/scss/_functions.scss 207:11  tint-color()
+../../node_modules/bootstrap/scss/_variables.scss 79:12   @import
+src/style/main.scss 27:9                                  root stylesheet
+
+
+
+./apps/web/src/style/main.scss
+Warning: Issue while running loader
+SassWarning: Deprecation Warning on line 211, column 10 of file:///home/zirod_judi/Documents/01_PROJECT/ZirodShop/node_modules/bootstrap/scss/_functions.scss:211:10:
+Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.mix instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+211 |   @return mix(black, $color, $weight);
+
+
+../../node_modules/bootstrap/scss/_functions.scss 212:11  shade-color()
+../../node_modules/bootstrap/scss/_variables.scss 84:12   @import
+src/style/main.scss 27:9                                  root stylesheet
+
+
+
+./apps/web/src/style/main.scss
+Warning: Issue while running loader
+SassWarning: Deprecation Warning on line 216, column 10 of file:///home/zirod_judi/Documents/01_PROJECT/ZirodShop/node_modules/bootstrap/scss/_functions.scss:216:10:
+The Sass if() syntax is deprecated in favor of the modern CSS syntax.
+
+Suggestion: if(sass($weight > 0): shade-color($color, $weight); else: tint-color($color, -$weight))
+
+More info: https://sass-lang.com/d/if-function
+
+216 |   @return if($weight > 0, shade-color($color, $weight), tint-color($color, -$weight));
+
+
+../../node_modules/bootstrap/scss/_functions.scss 217:11  @import
+src/style/main.scss 26:9                                  root stylesheet
+
+
+
+./apps/web/src/style/main.scss
+Warning: Issue while running loader
+SassWarning: Deprecation Warning on line 25, column 8 of file:///home/zirod_judi/Documents/01_PROJECT/ZirodShop/apps/web/src/style/main.scss:25:8:
+Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+25 | @import "bootstrap/scss/functions";
+
+
+src/style/main.scss 26:9  root stylesheet
+
+
+
+./apps/web/src/style/main.scss
+Warning: Issue while running loader
+SassWarning: Deprecation Warning on line 26, column 8 of file:///home/zirod_judi/Documents/01_PROJECT/ZirodShop/apps/web/src/style/main.scss:26:8:
+Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+26 | @import "bootstrap/scss/variables";
+
+
+src/style/main.scss 27:9  root stylesheet
+
+
+
+./apps/web/src/style/main.scss
+Warning: Issue while running loader
+SassWarning: Deprecation Warning on line 27, column 8 of file:///home/zirod_judi/Documents/01_PROJECT/ZirodShop/apps/web/src/style/main.scss:27:8:
+Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+27 | @import "bootstrap/scss/maps";
+
+
+src/style/main.scss 28:9  root stylesheet
+
+
+
+./apps/web/src/style/main.scss
+Warning: Issue while running loader
+SassWarning: Deprecation Warning on line 28, column 8 of file:///home/zirod_judi/Documents/01_PROJECT/ZirodShop/apps/web/src/style/main.scss:28:8:
+Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+28 | @import "bootstrap/scss/mixins";
+
+
+src/style/main.scss 29:9  root stylesheet
+
+
+
+./apps/web/src/style/main.scss
+Warning: Issue while running loader
+SassWarning: Deprecation Warning on line 29, column 8 of file:///home/zirod_judi/Documents/01_PROJECT/ZirodShop/apps/web/src/style/main.scss:29:8:
+Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+29 | @import "bootstrap/scss/root";
+
+
+src/style/main.scss 30:9  root stylesheet
+
+
+
+./apps/web/src/style/main.scss
+Warning: Issue while running loader
+SassWarning: Deprecation Warning on line 341, column 26 of file:///home/zirod_judi/Documents/01_PROJECT/ZirodShop/node_modules/bootstrap/scss/_variables.scss:341:26:
+Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.mix instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+341 | $light-bg-subtle:         mix($gray-100, $white) !default;
+
+
+../../node_modules/bootstrap/scss/_variables.scss 342:27  @import
+src/style/main.scss 27:9                                  root stylesheet
+
+
+
+./apps/web/src/style/main.scss
+Warning: Issue while running loader
+SassWarning: Deprecation Warning on line 36, column 10 of file:///home/zirod_judi/Documents/01_PROJECT/ZirodShop/node_modules/bootstrap/scss/_functions.scss:36:10:
+red() is deprecated. Suggestion:
+
+color.channel($color, "red", $space: rgb)
+
+More info: https://sass-lang.com/d/color-functions
+
+36 |   @return red($value), green($value), blue($value);
+
+
+../../node_modules/bootstrap/scss/_functions.scss 37:11   to-rgb()
+../../node_modules/bootstrap/scss/_variables.scss 846:31  @import
+src/style/main.scss 27:9                                  root stylesheet
+
+
+
+./apps/web/src/style/main.scss
+Warning: Issue while running loader
+SassWarning: Deprecation Warning on line 36, column 23 of file:///home/zirod_judi/Documents/01_PROJECT/ZirodShop/node_modules/bootstrap/scss/_functions.scss:36:23:
+green() is deprecated. Suggestion:
+
+color.channel($color, "green", $space: rgb)
+
+More info: https://sass-lang.com/d/color-functions
+
+36 |   @return red($value), green($value), blue($value);
+
+
+../../node_modules/bootstrap/scss/_functions.scss 37:24   to-rgb()
+../../node_modules/bootstrap/scss/_variables.scss 846:31  @import
+src/style/main.scss 27:9                                  root stylesheet
+
+
+
+./apps/web/src/style/main.scss
+Warning: Issue while running loader
+SassWarning: Deprecation Warning on line 57, column 29 of file:///home/zirod_judi/Documents/01_PROJECT/ZirodShop/node_modules/bootstrap/scss/_functions.scss:57:29:
+The Sass if() syntax is deprecated in favor of the modern CSS syntax.
+
+Suggestion: if(sass($arg == "$key"): $key; else: if($arg == "$value", $value, $arg))
+
+More info: https://sass-lang.com/d/if-function
+
+57 |       $_args: append($_args, if($arg == "$key", $key, if($arg == "$value", $value, $arg)));
+
+
+../../node_modules/bootstrap/scss/_functions.scss 58:30  @import
+src/style/main.scss 26:9                                 root stylesheet
+
+
+
+./apps/web/src/style/main.scss
+Warning: Issue while running loader
+SassWarning: Deprecation Warning on line 57, column 54 of file:///home/zirod_judi/Documents/01_PROJECT/ZirodShop/node_modules/bootstrap/scss/_functions.scss:57:54:
+The Sass if() syntax is deprecated in favor of the modern CSS syntax.
+
+Suggestion: if(sass($arg == "$value"): $value; else: $arg)
+
+More info: https://sass-lang.com/d/if-function
+
+57 |       $_args: append($_args, if($arg == "$key", $key, if($arg == "$value", $value, $arg)));
+
+
+../../node_modules/bootstrap/scss/_functions.scss 58:55  @import
+src/style/main.scss 26:9                                 root stylesheet
+
+
+
+
+> Build error occurred
+Error: Turbopack build failed with 1 error:
+[next]/internal/font/google/geist_a71539c9.module.css:34:8
+Error: Module not found: Can't resolve '@vercel/turbopack-next/internal/font/google/font'
+  [90m32 |[0m   font-weight: [35m100[0m [35m900[0m;
+  [90m33 |[0m   font-display: swap;
+[31m[1m>[0m [90m34 |[0m   src: url(@vercel/turbopack-next/internal/font/google/font?{%[35m22[0murl%[35m22[0m:%[35m22[0mhttps:[90m//fonts.gs...[0m
+  [90m   |[0m        [31m[1m^[0m
+  [90m35 |[0m   unicode-range: [33mU[0m+[35m0100[0m-[35m02[0m[33mBA[0m, [33mU[0m+[35m02[0m[33mBD[0m-[35m02[0m[33mC5[0m, [33mU[0m+[35m02[0m[33mC7[0m-[35m02[0m[33mCC[0m, [33mU[0m+[35m02[0m[33mCE[0m-[35m02[0m[33mD7[0m, [33mU[0m+[35m02[0m[33mDD[0m-[35m02[0m[33mFF[0m, [33mU[0m+[35m0304[0m, [33m.[0m.[35m.[0m
+  [90m36 |[0m }
+  [90m37 |[0m [90m/* latin */[0m
+
+Import map: Resolved by import map
+
+
+Import trace:
+  Server Component:
+    [next]/internal/font/google/geist_a71539c9.module.css
+    [next]/internal/font/google/geist_a71539c9.js
+    ./apps/web/src/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+    at <unknown> ([next]/internal/font/google/geist_a71539c9.module.css:34:8)
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+npm error Lifecycle script `build` failed with error:
+npm error code 1
+npm error path /home/zirod_judi/Documents/01_PROJECT/ZirodShop/apps/web
+npm error workspace web@0.1.0
+npm error location /home/zirod_judi/Documents/01_PROJECT/ZirodShop/apps/web
+npm error command failed
+npm error command sh -c next build
