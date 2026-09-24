@@ -1,0 +1,201 @@
+@use "sass:map";
+@use '../tokens/typography' as *;
+
+
+// ============================================================
+// GENERIC TOKEN FUNCTION
+// ============================================================
+
+@function font($key) {
+  @if not map.has-key($font, $key) {
+    @error "Font token `#{$key}` does not exist.";
+  }
+
+  @return map.get($font, $key);
+}
+
+
+// ============================================================
+// FONT FAMILY
+// ============================================================
+
+
+$family-base: ("Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif);
+$family-mono: ("JetBrains Mono", "Fira Code", monospace);
+
+@mixin font-family($family: base) {
+  @if $family == base {
+    font-family: $family-base;
+  } @else if $family == mono {
+    font-family: $family-base;
+  } @else {
+    @error "Unknown font family `#{$family}`.";
+  }
+}
+
+
+// ============================================================
+// FONT SIZE
+// ============================================================
+
+
+@mixin font-size($size: base) {
+  @if map.has-key($font, size-#{$size}) {
+    font-size: font(size-#{$size});
+  }
+
+  @else {
+    font-size: $size;
+  }
+}
+
+
+// ============================================================
+// FONT WEIGHT
+// ============================================================
+
+@mixin font-weight($weight: normal) {
+  $token: weight-#{$weight};
+
+  @if not map.has-key($font, $token) {
+    @error "Unknown font weight `#{$weight}`.";
+  }
+
+  font-weight: font($token);
+}
+
+
+// ============================================================
+// LINE HEIGHT
+// ============================================================
+
+@mixin line-height($height: normal) {
+  $token: line-#{$height};
+
+  @if not map.has-key($font, $token) {
+    @error "Unknown line height `#{$height}`.";
+  }
+
+  line-height: font($token);
+}
+
+
+// ============================================================
+// TYPOGRAPHY MIXIN
+// ============================================================
+
+@mixin typography( $size: base, $weight: normal, $line-height: normal, $family: base) {
+  @include font-family($family);
+  @include font-size($size);
+  @include font-weight($weight);
+  @include line-height($line-height);
+}
+
+
+// ============================================================
+// HEADINGS
+// ============================================================
+
+@mixin heading-1 {
+  @include typography(
+    $size: font(heading-1),
+    $weight: bold,
+    $line-height: tight
+  );
+}
+
+@mixin heading-2 {
+  @include typography(
+    $size: font(heading-2),
+    $weight: bold,
+    $line-height: tight
+  );
+}
+
+@mixin heading-3 {
+  @include typography(
+    $size: font(heading-3),
+    $weight: semibold,
+    $line-height: snug
+  );
+}
+
+@mixin heading-4 {
+  @include typography(
+    $size: font(heading-4),
+    $weight: semibold,
+    $line-height: snug
+  );
+}
+
+
+// ============================================================
+// BODY TEXT
+// ============================================================
+
+@mixin body-large {
+  @include typography(
+    $size: font(body-large),
+    $weight: normal,
+    $line-height: relaxed
+  );
+}
+
+@mixin body {
+  @include typography(
+    $size: font(body),
+    $weight: normal,
+    $line-height: normal
+  );
+}
+
+@mixin body-small {
+  @include typography(
+    $size: font(body-small),
+    $weight: normal,
+    $line-height: normal
+  );
+}
+
+@mixin caption {
+  @include typography(
+    $size: font(size-xs),
+    $weight: normal,
+    $line-height: normal
+  );
+}
+
+
+// ============================================================
+// LABEL / UI
+// ============================================================
+
+@mixin label {
+  @include typography(
+    $size: font(size-sm),
+    $weight: medium,
+    $line-height: snug
+  );
+}
+
+@mixin label-bold {
+  @include typography(
+    $size: font(size-sm),
+    $weight: semibold,
+    $line-height: snug
+  );
+}
+
+
+// ============================================================
+// MONOSPACE / CODE
+// ============================================================
+
+@mixin code {
+  @include typography(
+    $size: font(size-sm),
+    $weight: normal,
+    $line-height: normal,
+    $family: mono
+  );
+}
