@@ -1,0 +1,132 @@
+@use "sass:map";
+@use '../tokens/space' as *;
+
+// ============================================================
+// SPACING FUNCTION
+// ============================================================
+
+@function spacing($size) {
+  @if not map.has-key($spacing, $size) {
+    @error "Spacing token `#{$size}` does not exist. Available values: #{map.keys($spacing)}";
+  }
+
+  @return map.get($spacing, $size);
+}
+
+
+// ============================================================
+// MARGIN
+// ============================================================
+
+@mixin margin($size) {
+  margin: spacing($size);
+}
+
+@mixin margin-top($size) {
+  margin-top: spacing($size);
+}
+
+@mixin margin-right($size) {
+  margin-right: spacing($size);
+}
+
+@mixin margin-bottom($size) {
+  margin-bottom: spacing($size);
+}
+
+@mixin margin-left($size) {
+  margin-left: spacing($size);
+}
+
+@mixin margin-inline($size) {
+  margin-inline: spacing($size);
+}
+
+@mixin margin-block($size) {
+  margin-block: spacing($size);
+}
+
+
+// ============================================================
+// PADDING
+// ============================================================
+
+@mixin padding($size) {
+  padding: spacing($size);
+}
+
+@mixin padding-top($size) {
+  padding-top: spacing($size);
+}
+
+@mixin padding-right($size) {
+  padding-right: spacing($size);
+}
+
+@mixin padding-bottom($size) {
+  padding-bottom: spacing($size);
+}
+
+@mixin padding-left($size) {
+  padding-left: spacing($size);
+}
+
+@mixin padding-inline($size) {
+  padding-inline: spacing($size);
+}
+
+@mixin padding-block($size) {
+  padding-block: spacing($size);
+}
+
+
+// ============================================================
+// GAP
+// ============================================================
+
+@mixin gap($size) {
+  gap: spacing($size);
+}
+
+@mixin column-gap($size) {
+  column-gap: spacing($size);
+}
+
+@mixin row-gap($size) {
+  row-gap: spacing($size);
+}
+
+
+// ============================================================
+// FLEX / GRID SPACING
+// ============================================================
+
+@mixin stack($size: md) {
+  display: flex;
+  flex-direction: column;
+  gap: spacing($size);
+}
+
+@mixin inline($size: md) {
+  display: flex;
+  align-items: center;
+  gap: spacing($size);
+}
+
+
+// ============================================================
+// SECTION SPACING
+// ============================================================
+
+@mixin section-spacing($top: 2xl, $bottom: 2xl) {
+  padding-block: spacing($top) spacing($bottom);
+}
+
+
+// ============================================================
+// CONTAINER SPACING
+// ============================================================
+
+@mixin container-spacing($inline: md) {
+  padding-inline: spacing($inline);
+}
