@@ -1,0 +1,20 @@
+.heroContainer{
+    background-image: url('../../../../public/hero-bg.jpg');
+    width: 100%;
+    background-position: top;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-attachment: absolute;
+    background-size: 100%;
+    min-height: 90vh;
+    background-color: theme(accent);
+    position: relative;
+
+    &::before{
+        content: "";
+        background: linear-gradient(5deg, rgba(54, 99, 117, 0.901), rgba(255, 255, 255, 0.288));
+        position: fixed;
+        height: 90vh;
+        top:0; right:0;left: 0;bottom: 0;
+    }
+}

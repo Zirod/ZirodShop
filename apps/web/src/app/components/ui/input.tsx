@@ -1,5 +1,5 @@
 import { ReactNode } from "react"
-import style from "@style/components/ui/input.module.scss"
+import style from "@style/components/ui/_input.module.scss"
 
 
 interface InputProps{
@@ -43,5 +43,5 @@ export default function Input({withIcon, id, type, name ,placeholder, position, 
             </div>
         )
     }
-
+    
 }

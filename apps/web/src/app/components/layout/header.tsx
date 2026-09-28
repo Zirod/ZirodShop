@@ -1,6 +1,6 @@
 import style from '@style/components/layout/_header.module.scss'
 import Link from 'next/link';
-import { Bell, CircleUserRound, Mail, Phone, Search, ShoppingCartIcon } from 'lucide-react';
+import { Bell, User2Icon, Mail, Phone, Search, LucideShoppingBasket } from 'lucide-react';
 import Input from '../ui/input';
 
 export default function Header(){
@@ -28,15 +28,15 @@ export default function Header(){
             <div className={style.title}>
                 <a href=""><div className={style.siteName}><strong>Zirod</strong><strong className={style.nameLabel}>Shop.</strong></div></a>
 
-                <Input withIcon={true} position='left' type='search' name='Rechercher' placeholder='Placeholder...'>
+                <Input withIcon={true} position='left' type='search' name='Rechercher' placeholder='Rechercher...'>
                     <Search className={style.icon} />
                 </Input>
 
                 {/* Mini menue */}
                 <ul className={style.mini_menue}>
                     <li className={style.mini_menueItem}><Bell className={style.mnColor}/></li>
-                    <li className={style.mini_menueItem}><ShoppingCartIcon className={style.mnColor}/></li>
-                    <li className={style.mini_menueItem}><CircleUserRound className={style.mnColor}/></li>
+                    <li className={style.mini_menueItem}><LucideShoppingBasket className={style.mnColor}/></li>
+                    <li className={style.mini_menueItem}><User2Icon className={style.mnColor}/></li>
 
                 </ul>
             </div>
