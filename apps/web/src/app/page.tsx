@@ -1,12 +1,14 @@
+import Hero from "./components/layout/hero";
 
 export default function Home() {
     return (
-        <>            
-            <div className="page">
-                <main>
+        <>       
+            <main>
+                <Hero />     
+                <div className="page">
                     Ma boutique E-Commerce designed by Zirod Judi
-                </main>
-            </div>
+                </div>
+            </main>
         </>
     );
 }

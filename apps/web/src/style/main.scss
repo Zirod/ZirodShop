@@ -66,17 +66,10 @@ a {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: var(--background);
 }
 
 main {
-    display: flex;
-    flex: 1;
+    @include inline;
     width: 100%;
-    max-width: 1200px;
     flex-direction: column;
-    align-items: flex-start;
-    justify-content: space-between;
-    background-color: theme(surface);
-    padding: 20px 60px;
 }

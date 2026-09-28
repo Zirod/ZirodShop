@@ -3,10 +3,14 @@
 
 .inputContainer{
     @include inline(xs);
-    @include bordered;
+    @include bordered(xs);
     background-color: theme(surface);
     min-width: 200px;
-    border: .5px theme(accent) solid;
+    border: .5px theme(ui-label) solid;
+
+    &:focus{
+        border: 1px theme(accent) solid;
+    }
 }
 
 .input{
@@ -18,6 +22,7 @@
     color: theme(ui-label);
     outline: none;
 }
+
 .iputIcon{
     @include inline;
     @include padding(xs);
