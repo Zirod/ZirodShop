@@ -75,6 +75,10 @@
     color: #fff;
 }
 
+.icon{
+    @include padding(xs);
+}
+
 /*
     MINI MENUE
 */
