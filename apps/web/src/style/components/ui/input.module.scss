@@ -1,0 +1,26 @@
+@use "../../mixin/" as *;
+
+
+.inputContainer{
+    @include inline(xs);
+    @include bordered;
+    background-color: theme(surface);
+    min-width: 200px;
+    border: .5px theme(accent) solid;
+}
+
+.input{
+    @include border(none);
+    @include bordered;
+    @include label;
+    @include padding(sm);
+    background-color: theme(surface);
+    color: theme(ui-label);
+    outline: none;
+}
+.iputIcon{
+    @include inline;
+    @include padding(xs);
+    @include font-size(xs);
+    color: theme(ui-label);
+}
