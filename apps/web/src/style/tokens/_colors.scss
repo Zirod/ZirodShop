@@ -1,9 +1,12 @@
 
 $light-theme: (
-    border: red,
     infoline: #302f2f,
-    surface : #f3f3f3,
-    text    : #494949,
+    background: #d5eeff1e,
+    surface : #ffffff,
+
+    text-primary: #5c5a5a,
+    text-secondary: #7e7e7e,
+    text-tight: #cccccc,
     ui-label: rgb(109, 109, 109),
 );
 
