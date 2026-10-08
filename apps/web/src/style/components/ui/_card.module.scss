@@ -32,3 +32,10 @@
     color: theme(text-primary);
     @include padding(md)
 }
+
+.footer{
+    @include padding(md);
+    @include body-small;
+    color: theme(text-tight);
+    border-top: 1px rgba(192, 192, 192, 0.389) solid;
+}

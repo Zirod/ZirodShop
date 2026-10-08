@@ -29,3 +29,16 @@
 
 }
 
+.heroTitle{
+    @include font-size(4xl);
+    
+    .heroTitle.firstPart{
+        color: theme(surface);
+    }
+}
+
+.heroDescription{
+    color: theme(surface);
+    @include padding-top(lg);
+    @include font-size(2xl);
+}

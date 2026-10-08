@@ -1,0 +1,49 @@
+@use '../../mixin/' as *;
+
+.button{
+    @include padding(sm);
+    @include font-size(sm);
+    @include font-weight(bold);
+    @include margin-top(sm);
+    @include inline;
+    cursor: pointer;
+    outline: none;
+    border: 1px black solid;
+    background-color: transparent;
+}
+
+.primary{
+    background: theme(accent);
+    color: theme(surface);
+    border: 1px theme(accent) solid;
+}
+
+.danger{
+    background: theme(danger);
+    color: theme(surface);
+    border: 1px theme(danger) solid;
+
+    &::hover{
+        background: rgb(133, 12, 36);
+    }
+}
+
+.warning{
+    background: theme(warning);
+    color: theme(text-primary);
+    border: 1px theme(warning) solid;
+
+    &::hover{
+        background: rgba(173, 136, 1, 0.884);
+    }
+}
+
+.success{
+    background: theme(success);
+    color: theme(surface);
+    border: 1px theme(success) solid;
+
+    &::hover{
+        background: limegreen;
+    }
+}
