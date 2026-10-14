@@ -1,0 +1,259 @@
+@use "../tokens/border-radius" as *;
+
+// ============================================================
+// BASE MIXINS
+// ============================================================
+
+@mixin border($width: thin, $style: solid, $color: null) {
+  border-width: map-get(map-get($border, width), $width);
+  border-style: map-get(map-get($border, style), $style);
+
+  @if $color != null {
+    border-color: $color;
+  }
+}
+
+
+@mixin border-radius($radius) {
+  border-radius: map-get(
+    map-get($border, radius),
+    $radius
+  );
+}
+
+
+// ============================================================
+// BORDER - ALL SIDES
+// ============================================================
+
+@mixin border-none {
+  border: 0;
+}
+
+
+@mixin border-thin {
+  @include border(thin);
+}
+
+
+@mixin border-medium {
+  @include border(medium);
+}
+
+
+@mixin border-thick {
+  @include border(thick);
+}
+
+
+// ============================================================
+// BORDER - TOP
+// ============================================================
+
+@mixin border-top($width: thin, $style: solid, $color: null) {
+  border-top-width: map-get(map-get($border, width), $width);
+  border-top-style: map-get(map-get($border, style), $style);
+
+  @if $color != null {
+    border-top-color: $color;
+  }
+}
+
+
+// ============================================================
+// BORDER - RIGHT
+// ============================================================
+
+@mixin border-right($width: thin, $style: solid, $color: null) {
+  border-right-width: map-get(map-get($border, width), $width);
+  border-right-style: map-get(map-get($border, style), $style);
+
+  @if $color != null {
+    border-right-color: $color;
+  }
+}
+
+
+// ============================================================
+// BORDER - BOTTOM
+// ============================================================
+
+@mixin border-bottom($width: thin, $style: solid, $color: null) {
+  border-bottom-width: map-get(map-get($border, width), $width);
+  border-bottom-style: map-get(map-get($border, style), $style);
+
+  @if $color != null {
+    border-bottom-color: $color;
+  }
+}
+
+
+// ============================================================
+// BORDER - LEFT
+// ============================================================
+
+@mixin border-left($width: thin, $style: solid, $color: null) {
+  border-left-width: map-get(map-get($border, width), $width);
+  border-left-style: map-get(map-get($border, style), $style);
+
+  @if $color != null {
+    border-left-color: $color;
+  }
+}
+
+
+// ============================================================
+// BORDER RADIUS - INDIVIDUAL
+// ============================================================
+
+@mixin radius-none {
+  @include border-radius(none);
+}
+
+
+@mixin radius-xs {
+  @include border-radius(xs);
+}
+
+
+@mixin radius-sm {
+  @include border-radius(sm);
+}
+
+
+@mixin radius-md {
+  @include border-radius(md);
+}
+
+
+@mixin radius-lg {
+  @include border-radius(lg);
+}
+
+
+@mixin radius-xl {
+  @include border-radius(xl);
+}
+
+
+@mixin radius-2xl {
+  @include border-radius(2xl);
+}
+
+
+@mixin radius-3xl {
+  @include border-radius(3xl);
+}
+
+
+@mixin radius-4xl {
+  @include border-radius(4xl);
+}
+
+
+@mixin radius-full {
+  @include border-radius(full);
+}
+
+
+// ============================================================
+// BORDER RADIUS - SIDES
+// ============================================================
+
+@mixin radius-top($radius) {
+  border-top-left-radius: map-get(map-get($border, radius), $radius);
+  border-top-right-radius: map-get(map-get($border, radius), $radius);
+}
+
+
+@mixin radius-right($radius) {
+  border-top-right-radius: map-get(map-get($border, radius), $radius);
+  border-bottom-right-radius: map-get(map-get($border, radius), $radius);
+}
+
+
+@mixin radius-bottom($radius) {
+  border-bottom-right-radius: map-get(map-get($border, radius), $radius);
+  border-bottom-left-radius: map-get(map-get($border, radius), $radius);
+}
+
+
+@mixin radius-left($radius) {
+  border-top-left-radius: map-get(map-get($border, radius), $radius);
+  border-bottom-left-radius: map-get(map-get($border, radius), $radius);
+}
+
+
+// ============================================================
+// BORDER RADIUS - INDIVIDUAL CORNERS
+// ============================================================
+
+@mixin radius-top-left($radius) {
+  border-top-left-radius: map-get(
+    map-get($border, radius),
+    $radius
+  );
+}
+
+
+@mixin radius-top-right($radius) {
+  border-top-right-radius: map-get(
+    map-get($border, radius),
+    $radius
+  );
+}
+
+
+@mixin radius-bottom-right($radius) {
+  border-bottom-right-radius: map-get(
+    map-get($border, radius),
+    $radius
+  );
+}
+
+
+@mixin radius-bottom-left($radius) {
+  border-bottom-left-radius: map-get(
+    map-get($border, radius),
+    $radius
+  );
+}
+
+
+// ============================================================
+// COMPONENT PRESETS
+// ============================================================
+
+@mixin radius-button {
+  @include radius-md;
+}
+
+
+@mixin radius-input {
+  @include radius-md;
+}
+
+
+@mixin radius-card {
+  @include radius-xl;
+}
+
+
+@mixin radius-modal {
+  @include radius-2xl;
+}
+
+
+@mixin radius-dropdown {
+  @include radius-lg;
+}
+
+
+@mixin radius-badge {
+  @include radius-full;
+}
+
+
+@mixin radius-avatar {
+  @include radius-full;
+}

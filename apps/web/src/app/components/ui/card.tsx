@@ -14,7 +14,7 @@ export default function Card({ header, body, footer, badge } : CardProps) {
     return(
 
         <div className={style.cardContainer}>
-            {header && (
+            {header && (    
                 <div className={style.header}>
                     {header}
                 </div>

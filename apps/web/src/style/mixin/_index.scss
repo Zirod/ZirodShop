@@ -1,4 +1,8 @@
-@forward "./theme";
-@forward "./typography";
-@forward "./border_radius";
-@forward "./space";
+@forward "../mixin/border-radius";
+@forward "../mixin/breakpoint";
+@forward "../mixin/layout";
+@forward "../mixin/motion";
+@forward "../mixin/spacing";
+@forward "../mixin/typography";
+@forward "../mixin/z-index";
+@forward "../mixin/theme";

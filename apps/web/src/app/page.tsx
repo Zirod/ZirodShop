@@ -2,6 +2,7 @@ import Hero from "./components/layout/hero";
 import SectionTitle from "./components/layout/sectionTite";
 import Card from "./components/ui/card";
 import Image from "next/image";
+import Modal from "./components/ui/modal";
 
 export default function Home() {
     return (
@@ -12,6 +13,7 @@ export default function Home() {
                     title= "Best saler"
                     description="Nos meileur produit en vente "
                 />
+    
                 <div className="row">
                     <div className="col-lg-3">
                         <Card 

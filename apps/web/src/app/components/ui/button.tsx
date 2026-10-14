@@ -5,7 +5,7 @@ interface ButtonProps{
     icon?: LucideIcon,
     inconPosition?: "left" | "right"
     desc: string
-    variante?: "primary" | "secondary" | "warning" | "danger" | "info"
+    variante?: "primary" | "secondary" | "warning" | "danger" | "info" | "success"
     size?: "sm" | "md" | 'lg'
     full?: boolean
     loading?: boolean

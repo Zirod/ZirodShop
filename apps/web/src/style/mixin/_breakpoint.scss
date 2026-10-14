@@ -1,0 +1,97 @@
+@use "../tokens/breakpoint" as *;
+
+// ============================================================
+// BASE MIXINS
+// ============================================================
+
+@mixin media-up($size) {
+  @media (min-width: map-get($breakpoint, $size)) {
+    @content;
+  }
+}
+
+
+@mixin media-down($size) {
+  @media (max-width: map-get($breakpoint, $size) ) {
+    @content;
+  }
+}
+
+
+@mixin media-between($min, $max) {
+  @media (
+    min-width: map-get($breakpoint, $min)
+  ) and (
+    max-width: map-get($breakpoint, $max)
+  ) {
+    @content;
+  }
+}
+
+
+// ============================================================
+// COMMON BREAKPOINTS
+// ============================================================
+
+@mixin mobile {
+  @include media-down(sm) {
+    @content;
+  }
+}
+
+
+@mixin tablet {
+  @include media-between(sm, lg) {
+    @content;
+  }
+}
+
+
+@mixin desktop {
+  @include media-up(lg) {
+    @content;
+  }
+}
+
+
+@mixin large-desktop {
+  @include media-up(xl) {
+    @content;
+  }
+}
+
+
+// ============================================================
+// ORIENTATION
+// ============================================================
+
+@mixin landscape {
+  @media (orientation: landscape) {
+    @content;
+  }
+}
+
+
+@mixin portrait {
+  @media (orientation: portrait) {
+    @content;
+  }
+}
+
+
+// ============================================================
+// TOUCH
+// ============================================================
+
+@mixin touch {
+  @media (hover: none) and (pointer: coarse) {
+    @content;
+  }
+}
+
+
+@mixin pointer {
+  @media (hover: hover) and (pointer: fine) {
+    @content;
+  }
+}

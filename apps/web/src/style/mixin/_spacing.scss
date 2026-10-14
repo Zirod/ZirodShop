@@ -1,0 +1,223 @@
+@use "../tokens/spacing" as *;
+
+@mixin spacing($value) {
+  @if map-has-key($spacing, $value) {
+    @content;
+  }
+}
+
+
+// ============================================================
+// PADDING
+// ============================================================
+
+@mixin p($value) {
+  padding: map-get($spacing, $value);
+}
+
+
+@mixin px($value) {
+  padding-left: map-get($spacing, $value);
+  padding-right: map-get($spacing, $value);
+}
+
+
+@mixin py($value) {
+  padding-top: map-get($spacing, $value);
+  padding-bottom: map-get($spacing, $value);
+}
+
+
+@mixin pt($value) {
+  padding-top: map-get($spacing, $value);
+}
+
+
+@mixin pr($value) {
+  padding-right: map-get($spacing, $value);
+}
+
+
+@mixin pb($value) {
+  padding-bottom: map-get($spacing, $value);
+}
+
+
+@mixin pl($value) {
+  padding-left: map-get($spacing, $value);
+}
+
+
+// ============================================================
+// MARGIN
+// ============================================================
+
+@mixin m($value) {
+  margin: map-get($spacing, $value);
+}
+
+
+@mixin mx($value) {
+  margin-left: map-get($spacing, $value);
+  margin-right: map-get($spacing, $value);
+}
+
+
+@mixin my($value) {
+  margin-top: map-get($spacing, $value);
+  margin-bottom: map-get($spacing, $value);
+}
+
+
+@mixin mt($value) {
+  margin-top: map-get($spacing, $value);
+}
+
+
+@mixin mr($value) {
+  margin-right: map-get($spacing, $value);
+}
+
+
+@mixin mb($value) {
+  margin-bottom: map-get($spacing, $value);
+}
+
+
+@mixin ml($value) {
+  margin-left: map-get($spacing, $value);
+}
+
+
+// ============================================================
+// GAP
+// ============================================================
+
+@mixin gap($value) {
+  gap: map-get($spacing, $value);
+}
+
+
+@mixin gap-x($value) {
+  column-gap: map-get($spacing, $value);
+}
+
+
+@mixin gap-y($value) {
+  row-gap: map-get($spacing, $value);
+}
+
+
+// ============================================================
+// FLEX / GRID SPACING
+// ============================================================
+
+@mixin stack($value) {
+  display: flex;
+  flex-direction: column;
+  gap: map-get($spacing, $value);
+}
+
+
+@mixin inline-stack($value) {
+  display: flex;
+  flex-direction: row;
+  gap: map-get($spacing, $value);
+}
+
+
+// ============================================================
+// COMPONENT PRESETS
+// ============================================================
+
+@mixin spacing-component-xs {
+  padding: map-get($spacing, component-xs);
+}
+
+
+@mixin spacing-component-sm {
+  padding: map-get($spacing, component-sm);
+}
+
+
+@mixin spacing-component-md {
+  padding: map-get($spacing, component-md);
+}
+
+
+@mixin spacing-component-lg {
+  padding: map-get($spacing, component-lg);
+}
+
+
+@mixin spacing-component-xl {
+  padding: map-get($spacing, component-xl);
+}
+
+
+// ============================================================
+// CONTAINER PRESETS
+// ============================================================
+
+@mixin spacing-container-xs {
+  padding-left: map-get($spacing, container-xs);
+  padding-right: map-get($spacing, container-xs);
+}
+
+
+@mixin spacing-container-sm {
+  padding-left: map-get($spacing, container-sm);
+  padding-right: map-get($spacing, container-sm);
+}
+
+
+@mixin spacing-container-md {
+  padding-left: map-get($spacing, container-md);
+  padding-right: map-get($spacing, container-md);
+}
+
+
+@mixin spacing-container-lg {
+  padding-left: map-get($spacing, container-lg);
+  padding-right: map-get($spacing, container-lg);
+}
+
+
+@mixin spacing-container-xl {
+  padding-left: map-get($spacing, container-xl);
+  padding-right: map-get($spacing, container-xl);
+}
+
+
+// ============================================================
+// SECTION PRESETS
+// ============================================================
+
+@mixin spacing-section-xs {
+  padding-top: map-get($spacing, section-xs);
+  padding-bottom: map-get($spacing, section-xs);
+}
+
+
+@mixin spacing-section-sm {
+  padding-top: map-get($spacing, section-sm);
+  padding-bottom: map-get($spacing, section-sm);
+}
+
+
+@mixin spacing-section-md {
+  padding-top: map-get($spacing, section-md);
+  padding-bottom: map-get($spacing, section-md);
+}
+
+
+@mixin spacing-section-lg {
+  padding-top: map-get($spacing, section-lg);
+  padding-bottom: map-get($spacing, section-lg);
+}
+
+
+@mixin spacing-section-xl {
+  padding-top: map-get($spacing, section-xl);
+  padding-bottom: map-get($spacing, section-xl);
+}

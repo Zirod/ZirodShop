@@ -1,0 +1,43 @@
+// ============================================================
+// MOTION
+// ============================================================
+
+$motion: (
+
+  // ----------------------------------------------------------
+  // Durations
+  // ----------------------------------------------------------
+
+  duration: (
+    instant: 0ms,
+    fast: 100ms,
+    normal: 200ms,
+    medium: 300ms,
+    slow: 400ms,
+    slower: 500ms,
+    slowest: 700ms
+  ),
+
+
+  // ----------------------------------------------------------
+  // Easings
+  // ----------------------------------------------------------
+
+  easing: (
+    linear: linear,
+    ease: ease,
+    ease-in: ease-in,
+    ease-out: ease-out,
+    ease-in-out: ease-in-out,
+
+    smooth: cubic-bezier(0.4, 0, 0.2, 1),
+    smooth-in: cubic-bezier(0.4, 0, 1, 1),
+    smooth-out: cubic-bezier(0, 0, 0.2, 1),
+
+    enter: cubic-bezier(0, 0, 0.2, 1),
+    exit: cubic-bezier(0.4, 0, 1, 1),
+
+    bounce: cubic-bezier(0.34, 1.56, 0.64, 1)
+  )
+
+);

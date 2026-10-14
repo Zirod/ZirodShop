@@ -5,6 +5,7 @@
     @include font-size(sm);
     @include font-weight(bold);
     @include margin-top(sm);
+    @include radius(md);
     @include inline;
     cursor: pointer;
     outline: none;
