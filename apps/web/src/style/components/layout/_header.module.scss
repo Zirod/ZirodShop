@@ -1,4 +1,4 @@
-@use "@style/mixin/" as *;
+@use '../../mixin/index' as *;
 
 /*
     APP HEAD WITH INFOLINE
@@ -11,12 +11,8 @@
 }
 
 .infoline{
-    display: flex;
-    justify-content: space-between;
-    color: theme(inftext);
-    align-items: center;
-    background-color: theme(infoline);
-
+    @include flex-between;
+    @include flex-center-y;
     @include gap(sm);
     @include padding(md);
 }

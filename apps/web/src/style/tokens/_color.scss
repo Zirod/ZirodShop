@@ -1,0 +1,305 @@
+$accent: rgb(2, 114, 145);
+$primary-hover: darken($accent, 10%);
+$primary-light: lighten($primary, 10%);
+$primary-dark: darken($primary, 20%);
+
+$global-color: (
+    // ─────────────────────────────────────
+    // Brand
+    // ─────────────────────────────────────
+    primary: $accent,
+    primary-hover: $primary-hover,
+    primary-active: $primary-hover,
+    primary-light: $primary-light,
+    primary-dark: $primary-dark,
+
+    secondary: #64748b,
+    secondary-hover: #475569,
+    secondary-active: #334155,
+    secondary-light: #f1f5f9,
+    secondary-dark: #1e293b,
+
+
+    // ─────────────────────────────────────
+    // Semantic
+    // ─────────────────────────────────────
+    success: #16a34a,
+    success-hover: #15803d,
+    success-light: #f0fdf4,
+    success-dark: #166534,
+
+    warning: #d97706,
+    warning-hover: #b45309,
+    warning-light: #fffbeb,
+    warning-dark: #92400e,
+
+    danger: #dc2626,
+    danger-hover: #b91c1c,
+    danger-light: #fef2f2,
+    danger-dark: #991b1b,
+
+    info: #0284c7,
+    info-hover: #0369a1,
+    info-light: #f0f9ff,
+    info-dark: #075985,
+    
+
+    // Border
+    border-focus: $accent,
+    border-disabled: #e5ebf2,
+
+
+    // ─────────────────────────────────────
+    // Button
+    // ─────────────────────────────────────
+    button-primary: $accent,
+    button-primary-hover: $primary-hover,
+    button-primary-active: $primary-active,
+    button-primary-text: #ffffff,
+
+    button-secondary: #f0f5fa,
+    button-secondary-hover: #e5edf5,
+    button-secondary-active: #d9e4ee,
+    button-secondary-text: #26354a,
+
+    button-danger: #dc2626,
+    button-danger-hover: #b91c1c,
+    button-danger-active: #991b1b,
+    button-danger-text: #ffffff,
+
+    button-disabled: #e4ebf2,
+    button-disabled-text: #a2adbc,
+
+
+    // ─────────────────────────────────────
+    // Links
+    // ─────────────────────────────────────
+    link: $accent,
+    link-hover: $primary-hover,
+    link-visited: $primary-active,
+    link-disabled: #9aa6b7,
+
+
+    // ─────────────────────────────────────
+    // Icons
+    // ─────────────────────────────────────
+    icon: #64748b,
+    icon-primary: $primary,
+    icon-secondary: #7b879c,
+    icon-muted: #a3afbf,
+    icon-disabled: #c4ced9,
+    icon-inverse: #ffffff,
+
+
+    // ─────────────────────────────────────
+    // Misc
+    // ─────────────────────────────────────
+    white: #ffffff,
+    black: #000000,
+    transparent: transparent
+
+);
+
+$light-color: (
+  // ─────────────────────────────────────
+  // Text
+  // ─────────────────────────────────────
+  text: #172033,
+  text-primary: #172033,
+  text-secondary: #526078,
+  text-muted: #7b879c,
+  text-disabled: #aab4c3,
+  text-placeholder: #98a4b8,
+  text-inverse: #ffffff,
+
+  text-link: $accent,
+  text-link-hover: $primary-hover,
+
+  // ─────────────────────────────────────
+  // Background
+  // ─────────────────────────────────────
+  background: #f8fbff,
+  background-page: #f5f9fd,
+  background-secondary: #f0f6fc,
+  background-tertiary: #e8f0f8,
+
+  background-hover: #f1f7fd,
+  background-active: #e8f1fa,
+  background-disabled: #edf2f7,
+
+  // ─────────────────────────────────────
+  // Surfaces
+  // ─────────────────────────────────────
+  surface: #ffffff,
+  surface-hover: #fbfdff,
+  surface-active: #f5f9fd,
+  surface-raised: #ffffff,
+  surface-overlay: #ffffff,
+
+  // ─────────────────────────────────────
+  // Border
+  // ─────────────────────────────────────
+  border: #e2eaf3,
+  border-light: #edf3f8,
+  border-medium: #d2deea,
+  border-dark: #b7c5d5,
+
+
+  // ─────────────────────────────────────
+  // Input
+  // ─────────────────────────────────────
+  input-background: #ffffff,
+  input-border: #d5e0eb,
+  input-border-hover: #b8c8d9,
+  input-border-focus: $accent,
+
+  input-text: #172033,
+  input-placeholder: #98a4b8,
+
+  input-disabled: #f1f5f9,
+  input-disabled-text: #aab4c3,
+
+
+  // ─────────────────────────────────────
+  // Focus
+  // ─────────────────────────────────────
+  focus: $accent,
+  focus-ring: $primary-hover,
+
+
+  // ─────────────────────────────────────
+  // Selection
+  // ─────────────────────────────────────
+  selection-background: $accent,
+  selection-text: #dbeafe,
+
+  // ─────────────────────────────────────
+  // Overlay / Modal
+  // ─────────────────────────────────────
+  overlay: rgba(15, 23, 42, 0.42),
+  overlay-light: rgba(15, 23, 42, 0.20),
+  overlay-dark: rgba(15, 23, 42, 0.65),
+
+
+  // ─────────────────────────────────────
+  // Divider
+  // ─────────────────────────────────────
+  divider: #e6edf4,
+
+  // ─────────────────────────────────────
+  // Scrollbar
+  // ─────────────────────────────────────
+  scrollbar: #cbd7e4,
+  scrollbar-hover: #aebdcd,
+
+  // ─────────────────────────────────────
+  // Code
+  // ─────────────────────────────────────
+  code-background: #f1f6fb,
+  code-text: #26354a,
+
+  // ─────────────────────────────────────
+  // Shadows
+  // ─────────────────────────────────────
+  shadow-xs: 0 1px 2px rgba(30, 64, 100, 0.04),
+  shadow-sm: 0 1px 3px rgba(30, 64, 100, 0.06),
+  shadow-md: 0 4px 12px rgba(30, 64, 100, 0.08),
+  shadow-lg: 0 10px 25px rgba(30, 64, 100, 0.10),
+  shadow-xl: 0 20px 40px rgba(30, 64, 100, 0.12),
+
+  shadow-card: 0 2px 8px rgba(30, 64, 100, 0.05),
+  shadow-modal: 0 20px 50px rgba(15, 23, 42, 0.16),
+  shadow-dropdown: 0 8px 24px rgba(30, 64, 100, 0.12),
+
+);
+
+
+// =====================================================
+// DARK THEME
+// Uniquement les valeurs qui changent.
+// Les autres utilisent automatiquement $color.
+// =====================================================
+
+$dark-color: (
+    // Text
+  text: #e8eef7,
+  text-primary: #f1f5f9,
+  text-secondary: #b6c2d2,
+  text-muted: #8997aa,
+  text-disabled: #5f6d80,
+  text-placeholder: #68778b,
+  text-inverse: #0f172a,
+
+  text-link: #60a5fa,
+  text-link-hover: #93c5fd,
+
+  // Background
+  background: #0b1220,
+  background-page: #080f1b,
+  background-secondary: #111c2d,
+  background-tertiary: #172337,
+
+  background-hover: #142136,
+  background-active: #1a2a41,
+  background-disabled: #1a2638,
+
+  // Surfaces
+  surface: #111b2b,
+  surface-hover: #162337,
+  surface-active: #1b2a40,
+  surface-raised: #152238,
+  surface-overlay: #172337,
+
+  // Borders
+  border: #24344a,
+  border-light: #1c2a3d,
+  border-medium: #334861,
+  border-dark: #496078,
+
+  border-focus: $accent,
+  border-disabled: #253347,
+
+  // Inputs
+  input-background: #111c2d,
+  input-border: #33445a,
+  input-border-hover: #4b6078,
+  input-border-focus: $accent,
+
+  input-text: #f1f5f9,
+  input-placeholder: #718096,
+
+  input-disabled: #182538,
+  input-disabled-text: #5f6d80,
+
+
+  // Selection
+  selection-background: $accent,
+  selection-text: #dbeafe,
+
+  // Overlay
+  overlay: rgba(0, 0, 0, 0.60),
+  overlay-light: rgba(0, 0, 0, 0.40),
+  overlay-dark: rgba(0, 0, 0, 0.80),
+
+  // Divider
+  divider: #24344a,
+
+  // Scrollbar
+  scrollbar: #33445a,
+  scrollbar-hover: #4b6078,
+
+  // Code
+  code-background: #111c2d,
+  code-text: #dbe5f0,
+
+  // Shadows
+  shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.18),
+  shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.22),
+  shadow-md: 0 4px 12px rgba(0, 0, 0, 0.28),
+  shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.32),
+  shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.38),
+
+  shadow-card: 0 2px 8px rgba(0, 0, 0, 0.22),
+  shadow-modal: 0 20px 50px rgba(0, 0, 0, 0.45),
+  shadow-dropdown: 0 8px 24px rgba(0, 0, 0, 0.35)
+);

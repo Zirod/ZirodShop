@@ -1,0 +1,147 @@
+@use "../tokens/motion" as *;
+
+// ============================================================
+// BASE MIXIN
+// ============================================================
+
+@mixin transition(
+  $property: all,
+  $duration: normal,
+  $easing: smooth
+) {
+  transition:
+    $property
+    map-get(map-get($motion, duration), $duration)
+    map-get(map-get($motion, easing), $easing);
+}
+
+
+// ============================================================
+// TRANSITION PRESETS
+// ============================================================
+
+@mixin transition-fast(
+  $property: all
+) {
+  @include transition($property, fast, smooth);
+}
+
+
+@mixin transition-normal(
+  $property: all
+) {
+  @include transition($property, normal, smooth);
+}
+
+
+@mixin transition-slow(
+  $property: all
+) {
+  @include transition($property, slow, smooth);
+}
+
+
+// ============================================================
+// COMMON TRANSITIONS
+// ============================================================
+
+@mixin transition-colors {
+  @include transition(
+    color,
+    normal,
+    smooth
+  );
+
+  transition-property:
+    color,
+    background-color,
+    border-color,
+    text-decoration-color,
+    fill,
+    stroke;
+}
+
+
+@mixin transition-opacity {
+  @include transition(
+    opacity,
+    normal,
+    smooth
+  );
+}
+
+
+@mixin transition-transform {
+  @include transition(
+    transform,
+    normal,
+    smooth
+  );
+}
+
+
+@mixin transition-shadow {
+  @include transition(
+    box-shadow,
+    normal,
+    smooth
+  );
+}
+
+
+@mixin transition-size {
+  @include transition(
+    width,
+    normal,
+    smooth
+  );
+
+  transition-property:
+    width,
+    height,
+    max-width,
+    max-height;
+}
+
+
+// ============================================================
+// INTERACTION
+// ============================================================
+
+@mixin interactive {
+  @include transition(
+    all,
+    normal,
+    smooth
+  );
+}
+
+
+@mixin interactive-fast {
+  @include transition(
+    all,
+    fast,
+    smooth
+  );
+}
+
+
+// ============================================================
+// REDUCED MOTION
+// ============================================================
+
+@mixin reduced-motion {
+  @media (prefers-reduced-motion: reduce) {
+    @content;
+  }
+}
+
+
+@mixin disable-motion {
+  @media (prefers-reduced-motion: reduce) {
+    transition-duration: 0ms !important;
+    animation-duration: 0ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+}

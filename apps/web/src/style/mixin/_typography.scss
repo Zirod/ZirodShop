@@ -1,198 +1,288 @@
-@use "sass:map";
-@use '../tokens/typography' as *;
-
+@use "../tokens/typography" as *;
 
 // ============================================================
-// GENERIC TOKEN FUNCTION
+// BASE MIXIN
 // ============================================================
 
-@function font($key) {
-  @if not map.has-key($font, $key) {
-    @error "Font token `#{$key}` does not exist.";
-  }
+@mixin typography-base($size, $line-height, $weight, $spacing: normal, $family: sans) {
 
-  @return map.get($font, $key);
+  font-family: map-get(
+    map-get($typography, font-family),
+    $family
+  );
+
+  font-size: map-get(
+    map-get($typography, font-size),
+    $size
+  );
+
+  line-height: map-get(
+    map-get($typography, line-height),
+    $line-height
+  );
+
+  font-weight: map-get(
+    map-get($typography, font-weight),
+    $weight
+  );
+
+  letter-spacing: map-get(
+    map-get($typography, letter-spacing),
+    $spacing
+  );
 }
-
-
-// ============================================================
-// FONT FAMILY
-// ============================================================
-
-
-@mixin font-family($family: base) {
-  @if $family == base {
-    font-family: $family-base;
-  } @else if $family == mono {
-    font-family: $family-mono;
-  } @else {
-    @error "Unknown font family `#{$family}`.";
-  }
-}
-
-
-// ============================================================
-// FONT SIZE
-// ============================================================
-
-
-@mixin font-size($size: base) {
-  @if map.has-key($font, size-#{$size}) {
-    font-size: font(size-#{$size});
-  }
-
-  @else {
-    font-size: $size;
-  }
-}
-
-
-// ============================================================
-// FONT WEIGHT
-// ============================================================
-
-@mixin font-weight($weight: normal) {
-  $token: weight-#{$weight};
-
-  @if not map.has-key($font, $token) {
-    @error "Unknown font weight `#{$weight}`.";
-  }
-
-  font-weight: font($token);
-}
-
-
-// ============================================================
-// LINE HEIGHT
-// ============================================================
-
-@mixin line-height($height: normal) {
-  $token: line-#{$height};
-
-  @if not map.has-key($font, $token) {
-    @error "Unknown line height `#{$height}`.";
-  }
-
-  line-height: font($token);
-}
-
-
-// ============================================================
-// TYPOGRAPHY MIXIN
-// ============================================================
-
-@mixin typography( $size: base, $weight: normal, $line-height: normal, $family: base) {
-  @include font-family($family);
-  @include font-size($size);
-  @include font-weight($weight);
-  @include line-height($line-height);
-}
-
 
 // ============================================================
 // HEADINGS
 // ============================================================
 
-@mixin heading-1 {
-  @include typography(
-    $size: font(heading-1),
-    $weight: bold,
-    $line-height: tight
-  );
-}
-
-@mixin heading-2 {
-  @include typography(
-    $size: font(heading-2),
-    $weight: bold,
-    $line-height: tight
-  );
-}
-
-@mixin heading-3 {
-  @include typography(
-    $size: font(heading-3),
-    $weight: semibold,
-    $line-height: snug
-  );
-}
-
-@mixin heading-4 {
-  @include typography(
-    $size: font(heading-4),
-    $weight: semibold,
-    $line-height: snug
+@mixin typography-h1 {
+  @include typography-base(
+    4xl,
+    tight,
+    bold,
+    tight
   );
 }
 
 
-// ============================================================
-// BODY TEXT
-// ============================================================
-
-@mixin body-large {
-  @include typography(
-    $size: font(body-lg),
-    $weight: normal,
-    $line-height: relaxed
+@mixin typography-h2 {
+  @include typography-base(
+    3xl,
+    snug,
+    bold,
+    tight
   );
 }
 
-@mixin body {
-  @include typography(
-    $size: font(body),
-    $weight: normal,
-    $line-height: normal
+
+@mixin typography-h3 {
+  @include typography-base(
+    2xl,
+    snug,
+    semibold,
+    tight
   );
 }
 
-@mixin body-small {
-  @include typography(
-    $size: font(body-sm),
-    $weight: normal,
-    $line-height: normal
+
+@mixin typography-h4 {
+  @include typography-base(
+    xl,
+    snug,
+    semibold,
+    tight
   );
 }
 
-@mixin caption {
-  @include typography(
-    $size: font(size-xs),
-    $weight: normal,
-    $line-height: normal
+
+@mixin typography-h5 {
+  @include typography-base(
+    lg,
+    normal,
+    semibold,
+    normal
+  );
+}
+
+
+@mixin typography-h6 {
+  @include typography-base(
+    md,
+    normal,
+    semibold,
+    normal
   );
 }
 
 
 // ============================================================
-// LABEL / UI
+// BODY
 // ============================================================
 
-@mixin label {
-  @include typography(
-    $size: font(size-sm),
-    $weight: medium,
-    $line-height: snug
-  );
-}
-
-@mixin label-bold {
-  @include typography(
-    $size: font(size-sm),
-    $weight: semibold,
-    $line-height: snug
+@mixin typography-body-lg {
+  @include typography-base(
+    lg,
+    relaxed,
+    regular,
+    normal
   );
 }
 
 
+@mixin typography-body {
+  @include typography-base(
+    md,
+    relaxed,
+    regular,
+    normal
+  );
+}
+
+
+@mixin typography-body-sm {
+  @include typography-base(
+    sm,
+    normal,
+    regular,
+    normal
+  );
+}
+
+
+@mixin typography-body-xs {
+  @include typography-base(
+    xs,
+    normal,
+    regular,
+    normal
+  );
+}
+
+
 // ============================================================
-// MONOSPACE / CODE
+// UI
 // ============================================================
 
-@mixin code {
-  @include typography(
-    $size: font(size-sm),
-    $weight: normal,
-    $line-height: normal,
-    $family: mono
+@mixin typography-label {
+  @include typography-base(
+    sm,
+    normal,
+    medium,
+    normal
+  );
+}
+
+
+@mixin typography-label-sm {
+  @include typography-base(
+    xs,
+    snug,
+    medium,
+    wide
+  );
+}
+
+
+@mixin typography-button {
+  @include typography-base(
+    sm,
+    tight,
+    semibold,
+    normal
+  );
+}
+
+
+@mixin typography-button-sm {
+  @include typography-base(
+    xs,
+    tight,
+    semibold,
+    normal
+  );
+}
+
+
+@mixin typography-caption {
+  @include typography-base(
+    xs,
+    normal,
+    regular,
+    wide
+  );
+}
+
+
+@mixin typography-overline {
+  @include typography-base(
+    xs,
+    snug,
+    semibold,
+    wider
+  );
+}
+
+
+// ============================================================
+// NAVIGATION
+// ============================================================
+
+@mixin typography-nav {
+  @include typography-base(
+    sm,
+    normal,
+    medium,
+    normal
+  );
+}
+
+
+@mixin typography-nav-active {
+  @include typography-base(
+    sm,
+    normal,
+    semibold,
+    normal
+  );
+}
+
+
+// ============================================================
+// FORMS
+// ============================================================
+
+@mixin typography-input {
+  @include typography-base(
+    sm,
+    normal,
+    regular,
+    normal
+  );
+}
+
+
+@mixin typography-input-label {
+  @include typography-base(
+    sm,
+    normal,
+    medium,
+    normal
+  );
+}
+
+
+@mixin typography-input-helper {
+  @include typography-base(
+    xs,
+    normal,
+    regular,
+    normal
+  );
+}
+
+
+// ============================================================
+// CODE
+// ============================================================
+
+@mixin typography-code {
+  @include typography-base(
+    sm,
+    relaxed,
+    regular,
+    normal,
+    mono
+  );
+}
+
+
+@mixin typography-code-inline {
+  @include typography-base(
+    sm,
+    normal,
+    medium,
+    normal,
+    mono
   );
 }

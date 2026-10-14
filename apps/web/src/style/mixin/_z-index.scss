@@ -1,0 +1,79 @@
+@use "../tokens/z-index" as *;
+
+@mixin z-index($level) {
+  z-index: map-get($z-index, $level);
+}
+
+
+// ============================================================
+// PRESETS
+// ============================================================
+
+@mixin z-behind {
+  z-index: map-get($z-index, behind);
+}
+
+
+@mixin z-base {
+  z-index: map-get($z-index, base);
+}
+
+
+@mixin z-content {
+  z-index: map-get($z-index, content);
+}
+
+
+@mixin z-raised {
+  z-index: map-get($z-index, raised);
+}
+
+
+@mixin z-dropdown {
+  z-index: map-get($z-index, dropdown);
+}
+
+
+@mixin z-sticky {
+  z-index: map-get($z-index, sticky);
+}
+
+
+@mixin z-header {
+  z-index: map-get($z-index, header);
+}
+
+
+@mixin z-overlay {
+  z-index: map-get($z-index, overlay);
+}
+
+
+@mixin z-modal {
+  z-index: map-get($z-index, modal);
+}
+
+
+@mixin z-popover {
+  z-index: map-get($z-index, popover);
+}
+
+
+@mixin z-toast {
+  z-index: map-get($z-index, toast);
+}
+
+
+@mixin z-notification {
+  z-index: map-get($z-index, notification);
+}
+
+
+@mixin z-tooltip {
+  z-index: map-get($z-index, tooltip);
+}
+
+
+@mixin z-maximum {
+  z-index: map-get($z-index, maximum);
+}

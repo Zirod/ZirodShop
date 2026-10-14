@@ -1,4 +1,4 @@
-@use "../tokens/colors" as *;
+@use '../tokens/color' as *;
 
 /* Mixin pour generer les variables CSS depuis une map */
 @mixin generate-color-by-theme($map) {
@@ -9,13 +9,13 @@
 
 /* Generation des variables CSS pour chaque theme */
 :root {
-    @include generate-color-by-theme($global-theme);
-    @include generate-color-by-theme($light-theme);
+    @include generate-color-by-theme($global-color);
+    @include generate-color-by-theme($light-color);
 }
 
 @media (prefers-color-scheme: dark) {
     html[data-theme="dark"] {
-        @include generate-color-by-theme($dark-theme);
+        @include generate-color-by-theme($dark-color);
     }
 }
 

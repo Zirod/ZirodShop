@@ -1,0 +1,30 @@
+@use '../../mixin/' as *;
+
+.modalContainer{
+    @include inline;
+    justify-content: center;
+    z-index: 999;
+    position: fixed;
+    top: 0; right: 0;left: 0; bottom: 0;
+    background: rgba(1, 36, 42, 0.71);
+}
+.modalCard{
+    color: theme(text-primary);
+    position: relative;
+    min-width: 500px;
+    @include padding(lg);
+    background: white;
+    @include radius(lg);
+    box-shadow: 0 4px 16px -1px rgba(113, 113, 113, 0.1), 0 2px 4px -1px rgba(119, 119, 119, 0.06);
+}
+
+.closer{
+    @include padding(xs);
+    cursor: pointer;
+    border-radius: 50%;
+    color: theme(text-primary);
+    background-color: rgba(220, 20, 60, 0.125);
+    font-size: 4px;
+    position: absolute;
+    top:10; right: 10;
+}
