@@ -2,19 +2,14 @@
 
 
 .SectionTitle{
-    @include padding(xl);
     text-align: center
 }
 
 .title{
-    @include font-size(4xl);
-    @include font-weight(bold);
     text-transform: uppercase;
     color: theme(text-primary)
 }
 
 .description{
-    @include font-size(lg);
-    @include padding(md);
     color: theme(text-secondary)
 }

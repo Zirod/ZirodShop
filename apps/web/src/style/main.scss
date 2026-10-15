@@ -14,7 +14,6 @@ input,
 optgroup,
 select,
 textarea {
-    font-family: inherit;
     font-size: 100%;
 }
 
@@ -51,7 +50,6 @@ body {
     background: var(--background);
 
     /* Police unique : source de vérité = tokens/_typography ($family-base) */
-    @include font-family(base);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }

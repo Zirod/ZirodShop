@@ -12,7 +12,7 @@ export default function Hero(){
                     <div className="col-lg-7">
 
                         <strong className={style.heroTitle}><span className={style.firstPart}>Zirod</span>Shop</strong>
-                        <p className={style.heroDescription}>Vos produit préférer a un clic de chez vous.n<br /> Achetez mieux. Vivez mieux</p>
+                        <p className={style.heroDescription}>Vos produit préférer a un clic de chez vous.<br /> Achetez mieux. Vivez mieux</p>
 
                         <div>
                             <Button icon={Trash} variante="danger"  desc="Voir tous nos produits" type="button"/>

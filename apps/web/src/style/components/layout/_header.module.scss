@@ -7,19 +7,23 @@
 .appHead{
     position: fixed;
     top: 0;right: 0;left: 0;
-    z-index: 100;
+    @include z-header;
 }
 
 .infoline{
     @include flex-between;
     @include flex-center-y;
-    @include gap(sm);
-    @include padding(md);
+    @include typography-body;
+    @include px(xl);
+    @include py(sm);
+    background: theme(secondary-dark);
+    color: theme(text-disabled);
+
 }
 
 .infolineItem{
+    @include flex-center-y;
     @include inline;
-    align-items: center;
 }
 
 
@@ -29,58 +33,46 @@
 
 
 .header{
-    position: relative;
-    top: 0;right: 0;left: 0;
-    height: 70px;
-    background: theme(accent);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: spacing(xs);
+    @include flex-center-x;
+    @include py(md);
+    background: theme(primary);
 }
 .title{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    gap: 100px;
-    padding: 20px;
-    background-color: theme(surface);
+    @include flex-between;
+    @include px(lg);
+    @include py(lg);
+    background: theme(surface);
 }
 
 .siteName{
-    @include heading-3;
-    color: theme(accent);
+    @include typography-h1;
+    color: theme(primary);
     width: fit-content;
     padding: 0 0 0 50px;
 }
 .nameLabel{
-    color: theme(infoline);
+    color: theme(text-primary);
 }
 
 .nav_items{
-    display: flex;
+    @include flex-center-x;
     list-style: none;
 }
 .nav_item{
-    margin: 0 0 0 20px;
-    font-weight: bold;
-    cursor: pointer;
+    @include typography-nav;
+    @include mx(md)
 }
 .nav_color{
-    color: #fff;
+    color: theme(white);
 }
-
-.icon{
-    @include padding(xs);
-}
-
 /*
     MINI MENUE
 */
 
 .mini_menue{
-   @include inline;
-   @include gap(xl);
+   @include flex-center-x;
+   color: theme(primary);
+   @include gap(lg);
 }
 
 .mini_menueItem{

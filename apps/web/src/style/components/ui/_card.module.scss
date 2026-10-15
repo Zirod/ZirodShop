@@ -1,8 +1,6 @@
 @use '../../mixin/' as *;
 
 .cardContainer{
-    @include radius(xl);
-    @include margin-bottom(md);
     padding: 0;
     background-color: theme(surface);
     box-shadow: 0 4px 6px -1px rgba(113, 113, 113, 0.1), 0 2px 4px -1px rgba(119, 119, 119, 0.06);
@@ -16,8 +14,6 @@
 }
 
 .header{
-    @include padding(md);
-    @include font-weight(bold);
     color: theme(text-primary);
     border-bottom: 1px rgba(192, 192, 192, 0.389) solid;
     &:has(img){
@@ -30,12 +26,9 @@
 
 .body{
     color: theme(text-primary);
-    @include padding(md)
 }
 
 .footer{
-    @include padding(md);
-    @include body-small;
     color: theme(text-tight);
     border-top: 1px rgba(192, 192, 192, 0.389) solid;
 }
