@@ -30,15 +30,16 @@
 }
 
 .heroTitle{
-    @include font-size(4xl);
-    
+    @include typography-h1;
+    color: theme(text);
+
     .heroTitle.firstPart{
         color: theme(surface);
     }
 }
 
 .heroDescription{
+    @include py(md);
+    @include typography-body-lg;
     color: theme(surface);
-    @include padding-top(lg);
-    @include font-size(2xl);
 }
