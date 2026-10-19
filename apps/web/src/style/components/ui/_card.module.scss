@@ -2,20 +2,20 @@
 
 .cardContainer{
     padding: 0;
+    @include radius-card;
+    @include typography-body;
     background-color: theme(surface);
-    box-shadow: 0 4px 6px -1px rgba(113, 113, 113, 0.1), 0 2px 4px -1px rgba(119, 119, 119, 0.06);
+    box-shadow: theme(shadow-card);
     width: 100%;
     transition: .2s ease-in-out;
 
     &:hover{
-        transform: scale(1.03);
-        box-shadow: 0 4px 6px -1px rgba(113, 113, 113, 0.1), 0 2px 4px -1px rgba(119, 119, 119, 0.06);
+        box-shadow: theme(shadow-md);
     }
 }
 
 .header{
-    color: theme(text-primary);
-    border-bottom: 1px rgba(192, 192, 192, 0.389) solid;
+    color: theme(text-secondary);
     &:has(img){
         padding: 0px;
         &.image{
@@ -24,7 +24,12 @@
     }
 }
 
+.header img{
+    @include radius-top(xl);
+}
+
 .body{
+    @include p(3);
     color: theme(text-primary);
 }
 

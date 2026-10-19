@@ -14,16 +14,24 @@ export default function Home() {
                     description="Nos meileur produit en vente "
                 />
     
-                <div className="row">
-                    <div className="col-lg-3">
-                        <Card 
-                            header={ <Image src="/hero-bj.jpg" width={500} height={100} alt="Card image"/> }
-                            body = {<p> je suis une titre de cars</p>}
-                            footer = { <p>je suis un footer</p>}
-                        />
-                    </div>
 
+                <div className="cardContainer">
+                    <Modal buttonLabel="Open modal" variante="danger">
+                        <p>Tu peux me fermer avec le X, Escape, ou en cliquant autour de moi 👋</p>
+                        <p>je suis</p>
+                    </Modal>
+                    <Card 
+                        header = {
+                            <Image width={1000} height={600} layout="responsive" src="/hero-bg.jpg" alt="prodil"/>
+                        }
+                        body = {
+                            <>
+                                <p> je suis une titre de cars</p>
+                            </>
+                        }
+                    />
                 </div>
+
             </main>
         </>
     );

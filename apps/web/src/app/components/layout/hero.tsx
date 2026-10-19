@@ -1,6 +1,5 @@
 import style  from "@style/components/layout/_hero.module.scss";
 import Button from "../ui/button";
-import { Trash } from "lucide-react";
 
 export default function Hero(){
    
@@ -10,17 +9,13 @@ export default function Hero(){
             <div className={style.contain}>
                 <div className="row">
                     <div className="col-lg-7">
+                        <strong className={style.heroTitle}><span className={style.firstPart}>Zirod</span>Shop. <br/> L'achat qui change tout</strong>
+                        <p className={style.heroDescription}>Des milliers de produits, à un clic de chez vous. Livraison rapide, prix cassés, zéro compromis.<br />Arrêtez de chercher. Cliquez, c'est livré.</p>
 
-                        <strong className={style.heroTitle}><span className={style.firstPart}>Zirod</span>Shop</strong>
-                        <p className={style.heroDescription}>Vos produit préférer a un clic de chez vous.<br /> Achetez mieux. Vivez mieux</p>
-
-                        <div>
-                            <Button icon={Trash} variante="danger"  desc="Voir tous nos produits" type="button"/>
+                        <div className={style.btn_container}>
+                            <Button variante="primary"  desc="Nos meilleurs produits" type="button"/>
+                            <Button variante="secondary"  desc="Tous nos produits" type="button"/>
                         </div>
-
-                    </div>
-                    <div className="col-lg-5">
-                        Image
                     </div>
                 </div>
             </div>

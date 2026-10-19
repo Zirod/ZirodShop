@@ -3,14 +3,39 @@
 .button{
     cursor: pointer;
     outline: none;
-    border: 1px black solid;
-    background-color: transparent;
+    @include typography-button;
+    @include flex-between;
+    @include border;
+    @include radius-md;
+    @include px(5);
+    @include py(3);
+    @include transition-slow;
+}
+.icon{
+    @include mr(3);
+}
+.full{
+    @include radius-full;
 }
 
 .primary{
-    background: theme(accent);
+    @include border-none;
+    background: theme(primary);
     color: theme(surface);
-    border: 1px theme(accent) solid;
+
+    &:hover{
+        background: theme(primary-hover); 
+    }
+}
+
+.secondary{
+    @include border-none;
+    background: theme(secondary);
+    color: theme(surface);
+
+    &:hover{
+        background: theme(secondary-hover);
+    }
 }
 
 .danger{
@@ -18,8 +43,8 @@
     color: theme(surface);
     border: 1px theme(danger) solid;
 
-    &::hover{
-        background: rgb(133, 12, 36);
+    &:hover{
+        background: theme(danger-hover);
     }
 }
 
@@ -29,7 +54,7 @@
     border: 1px theme(warning) solid;
 
     &::hover{
-        background: rgba(173, 136, 1, 0.884);
+        background: theme(warning-hover);
     }
 }
 
@@ -39,6 +64,6 @@
     border: 1px theme(success) solid;
 
     &::hover{
-        background: limegreen;
+        background: theme(success-hover);
     }
 }
