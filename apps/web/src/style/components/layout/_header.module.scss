@@ -56,14 +56,21 @@
 
 .nav_items{
     @include flex-center-x;
+    @include gap(5);
     list-style: none;
 }
 .nav_item{
     @include typography-nav;
-    @include mx(md)
+    @include mx(md);
 }
+
 .nav_color{
     color: theme(white);
+    @include transition-slow;
+
+    &:hover{
+        color: theme(secondary-dark);
+    }
 }
 /*
     MINI MENUE

@@ -2,14 +2,16 @@
 
 
 .SectionTitle{
-    text-align: center
+    @include py(10);
+    text-align: center;
 }
 
 .title{
-    text-transform: uppercase;
-    color: theme(text-primary)
+    @include typography-h1;
+    color: theme(text-primary);
 }
 
 .description{
-    color: theme(text-secondary)
+    @include typography-body-lg;
+    color: theme(text-disabled)
 }

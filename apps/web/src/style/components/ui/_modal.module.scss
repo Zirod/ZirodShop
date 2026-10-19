@@ -1,30 +1,87 @@
 @use '../../mixin/' as *;
 
 .modalContainer{
-    @include inline;
-    justify-content: center;
-    z-index: 999;
+    @include flex-center;
+    @include z-modal;
     position: fixed;
-    top: 0; right: 0;left: 0; bottom: 0;
-    background: rgba(1, 36, 42, 0.71);
+    inset: 0;
+    padding: 24px;
+    background: rgba(1, 64, 94, 0.501);
+
+    // État fermé : invisible, backdrop transparent, carte repoussée
+    opacity: 0;
+    visibility: hidden;
+    @include transition-opacity;
+
+    // État ouvert : backdrop apparaît en fondu
+    &[data-state="open"]{
+        opacity: 1;
+        visibility: visible;
+    }
+
+    @include disable-motion;
 }
+
 .modalCard{
     color: theme(text-primary);
     position: relative;
     min-width: 500px;
-    @include padding(lg);
-    background: white;
-    @include radius(lg);
-    box-shadow: 0 4px 16px -1px rgba(113, 113, 113, 0.1), 0 2px 4px -1px rgba(119, 119, 119, 0.06);
+    max-width: 100%;
+    @include p(12);
+    background: theme(surface);
+    @include radius-card;
+    box-shadow: theme(shadow-modal);
+
+    // État fermé : la carte descend et se rétrécit
+    transform: translateY(24px) scale(0.96);
+    @include transition-transform;
+
+    [data-state="open"] & {
+        transform: translateY(0) scale(1);
+    }
+}
+
+.colserContainer{
+    @include border-none;
+    @include flex-center;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+
+    @include p(2);
+    @include radius-full;
+    cursor: pointer;
+    outline: none;
+    background: theme(secondary-light);
+    color: theme(text-secondary);
+
+    @include interactive-fast;
+
+    &:hover{
+        background: theme(danger-light);
+        color: theme(danger);
+    }
+
+    &:focus-visible{
+        box-shadow: 0 0 0 2px theme(focus);
+    }
 }
 
 .closer{
-    @include padding(xs);
+    display: block;
+}
+
+.openButton{
+    @include p(3);
+    @include radius-md;
     cursor: pointer;
-    border-radius: 50%;
-    color: theme(text-primary);
-    background-color: rgba(220, 20, 60, 0.125);
-    font-size: 4px;
-    position: absolute;
-    top:10; right: 10;
+    border: none;
+    outline: none;
+    background: theme(primary);
+    color: theme(surface);
+    @include interactive-fast;
+
+    &:hover{
+        background: theme(primary-hover);
+    }
 }

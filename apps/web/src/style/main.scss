@@ -1,4 +1,4 @@
-@use "./mixin/" as *;
+@use "./mixin/index" as *;
 
 *, 
 *::before, 
@@ -35,14 +35,12 @@ textarea {
 
 html,
 body {
+    @include typography-body;
     scrollbar-width: none;
     scroll-behavior: smooth;
     max-width: 100vw;
     overflow-x: hidden;
     color: theme(text);
-}
-
-body {
     min-height: 100%;
     display: flex;
     flex-direction:column;
@@ -69,7 +67,15 @@ a {
 
 main {
     padding: 30px;
-    background-color: theme(background);
+    background-color: theme(surface);
     width: 100%;
     flex-direction: column;
 }
+
+.cardContainer{
+    @include py(5);
+    @include gap(md);
+    @include grid-center;
+    @include grid-auto-fill;
+}
+

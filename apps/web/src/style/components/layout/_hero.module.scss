@@ -1,6 +1,8 @@
 @use '../../mixin/' as *;
 
 .heroContainer{
+    @include p(16);
+    @include flex-center-y  ;
     background-image: url('../../../../public/hero-bg.jpg');
     width: 100%;
     background-position: top;
@@ -9,13 +11,11 @@
     background-attachment: absolute;
     background-size: 100%;
     min-height: 90vh;
-    background-color: theme(accent);
     position: relative;
-    padding: 250px 50px;
 
     &::before{
         content: "";
-        background: linear-gradient(45deg, rgba(244, 245, 245, 0.579), rgba(162, 248, 250, 0.331));
+        background: linear-gradient(45deg, rgba(0, 48, 67, 0.579), rgba(162, 248, 250, 0.331));
         position: absolute;
         height: 90vh;
         top:0; right:0;left: 0;bottom: 0;
@@ -28,10 +28,13 @@
     }
 
 }
+.firstPart{
+    color: theme(primary);
+}
 
 .heroTitle{
     @include typography-h1;
-    color: theme(text);
+    color: theme(surface-active);
 
     .heroTitle.firstPart{
         color: theme(surface);
@@ -42,4 +45,9 @@
     @include py(md);
     @include typography-body-lg;
     color: theme(surface);
+}
+.btn_container{
+    @include gap(3);
+    @include py(5);
+    @include flex-row;
 }

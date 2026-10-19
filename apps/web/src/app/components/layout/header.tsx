@@ -17,7 +17,7 @@ export default function Header(){
             {/* App head with infoline */}
             <div className={style.infoline}>
                 <a href="mailto:judizirod0@gmail.com" className={style.infolineItem}>
-                    <Mail size={15}/> <span>judizirod0@gmail.com</span>
+                    <Mail size={15}/><span>judizirod0@gmail.com</span>
                 </a>
                 <a href="tel:002290196697276" className={style.infolineItem}>
                     <Phone size={17}/> <span> +229 01 96687276</span>
