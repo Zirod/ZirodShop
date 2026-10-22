@@ -34,6 +34,11 @@
 }
 
 .footer{
+    @include p(3);
     color: theme(text-tight);
-    border-top: 1px rgba(192, 192, 192, 0.389) solid;
+}
+
+.iconContainer{
+    @include flex-center;
+    @include p(2);
 }

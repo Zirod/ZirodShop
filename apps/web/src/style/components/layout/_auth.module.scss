@@ -1,0 +1,130 @@
+@use "../../mixin/" as *;
+
+// ============================================================
+// Page d'authentification (style LeadDesk)
+// Fond sombre de marque + carte de connexion centrée
+// ============================================================
+
+.authPage {
+    @include flex-center;
+    @include flex-column;
+    @include gap(lg);
+    @include min-screen-height;
+    @include p(xl);
+    width: 100%;
+    box-sizing: border-box;
+    background:
+        radial-gradient(1100px 550px at 15% -10%, theme(primary-light), transparent 60%),
+        linear-gradient(165deg, theme(primary-dark) 0%, #052a3a 55%, #071118 100%);
+}
+
+.brand {
+    @include flex-center-y;
+    @include gap(1);
+    @include typography-h4;
+    color: theme(white);
+
+    strong + span {
+        color: rgba(255, 255, 255, 0.72);
+    }
+}
+
+.authCard {
+    @include stack(lg);
+    width: 100%;
+    max-width: 430px;
+    @include p(2xl);
+    @include radius-2xl;
+    background: theme(surface);
+    box-shadow: theme(shadow-modal);
+}
+
+.cardHeader {
+    @include stack(2);
+    text-align: center;
+}
+
+.cardTitle {
+    @include typography-h3;
+    color: theme(text);
+}
+
+.cardSubtitle {
+    @include typography-body-sm;
+    color: theme(text-secondary);
+}
+
+.authForm {
+    @include stack(lg);
+    width: 100%;
+}
+
+.field {
+    @include stack(2);
+    width: 100%;
+}
+
+.fieldLabel {
+    @include typography-input-label;
+    color: theme(text);
+}
+
+.fieldHelpRow {
+    @include flex-end;
+    width: 100%;
+}
+
+.forgotLink {
+    @include typography-body-xs;
+    color: theme(text-link);
+
+    &:hover {
+        color: theme(text-link-hover);
+        text-decoration: underline;
+    }
+}
+
+.eyeButton {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: theme(icon);
+}
+
+.errorBox {
+    width: 100%;
+    @include typography-body-sm;
+    @include p(3);
+    @include radius-md;
+    background: theme(danger-light);
+    color: theme(danger-dark);
+    border: 1px theme(danger) solid;
+}
+
+.submitButton {
+    width: 100%;
+
+    button {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+.authFooter {
+    @include typography-caption;
+    color: rgba(255, 255, 255, 0.55);
+    text-align: center;
+}
+
+@include mobile {
+    .authPage {
+        @include p(md);
+    }
+
+    .authCard {
+        @include p(xl);
+    }
+}

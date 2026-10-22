@@ -1,0 +1,232 @@
+@use '../../mixin//index' as *;
+
+// ============================================================
+// FOOTER — Boutique en ligne
+// ============================================================
+
+.container {
+    @include px(6);
+    @include py(12);
+    @include full-width;
+    background: theme(secondary-dark);
+    color: theme(secondary-light);
+}
+
+
+// ============================================================
+// ZONE PRINCIPALE (grille responsive)
+// ============================================================
+
+.top {
+    @include pb(10);
+    @include grid;
+    @include gap-y(10);
+    @include gap-x(8);
+
+    @include mobile {
+        @include flex-column;
+    }
+
+    @include tablet {
+        @include grid-cols(2);
+    }
+
+    @include desktop {
+        @include grid-cols(4);
+    }
+}
+
+
+// ── Marque & contact ─────────────────────────────────────────
+
+.title {
+    @include typography-h2;
+    @include mb(4);
+}
+
+.titleEnd {
+    color: theme(primary-light);
+}
+
+.desc {
+    @include typography-body;
+    @include mb(5);
+    color: rgba(255, 255, 255, 0.65);
+}
+
+.address {
+    @include stack(3);
+    @include mb(5);
+}
+
+.addressItem {
+    @include inline-stack(3);
+    @include typography-body-sm;
+    @include transition-colors;
+    color: rgba(255, 255, 255, 0.75);
+    text-decoration: none;
+
+    svg {
+        color: theme(primary-light);
+        flex-shrink: 0;
+    }
+
+    &:hover {
+        color: theme(secondary-light);
+    }
+}
+
+.socials {
+    @include inline-stack(3);
+}
+
+.socialLink {
+    @include flex-center;
+    @include radius-full;
+    @include interactive;
+    @include p(2);
+    width: 2.5rem;
+    height: 2.5rem;
+
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: rgba(255, 255, 255, 0.75);
+
+    &:hover {
+        background: theme(primary);
+        border-color: theme(primary);
+        color: theme(white);
+        transform: translateY(-2px);
+    }
+}
+
+
+// ── Colonnes de liens ────────────────────────────────────────
+
+.section {
+    min-width: 0;
+}
+
+.heading {
+    @include typography-label-sm;
+    @include pb(3);
+    @include mb(5);
+    display: inline-block;
+    color: theme(secondary-light);
+    border-bottom: 2px solid theme(primary);
+}
+
+.linkList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+        @include mb(3);
+    }
+}
+
+.link {
+    @include typography-nav;
+    @include transition-colors;
+    color: rgba(255, 255, 255, 0.65);
+    text-decoration: none;
+
+    &:hover {
+        color: theme(secondary-light);
+        padding-left: 0.25rem;
+    }
+}
+
+
+// ── Newsletter ───────────────────────────────────────────────
+
+.newsLetterText {
+    @include typography-body-sm;
+    @include mb(5);
+    color: rgba(255, 255, 255, 0.65);
+}
+
+.newsLetterForm {
+    @include stack(3);
+    @include mb(4);
+    @include full-width;
+
+    > div {
+        @include full-width;
+    }
+
+    input {
+        @include typography-body-sm;
+        @include p(3);
+        width: 100%;
+
+        background: rgba(255, 255, 255, 0.08);
+        color: theme(secondary-light);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        outline: none;
+
+        &::placeholder {
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        &:focus {
+            border-color: theme(primary);
+            background: rgba(255, 255, 255, 0.12);
+        }
+    }
+
+    button {
+        @include full-width;
+    }
+}
+
+.newsLetterHint {
+    @include inline-stack(2);
+    @include flex-center-y;
+    @include typography-caption;
+    color: rgba(255, 255, 255, 0.45);
+
+    svg {
+        flex-shrink: 0;
+    }
+}
+
+
+// ============================================================
+// BARRE DU BAS — copyright + paiements
+// ============================================================
+
+.bottom {
+    @include py(6);
+    @include flex-wrap;
+    @include flex-center-y;
+    @include gap-y(3);
+    @include gap-x(6);
+
+    justify-content: space-between;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.copyright {
+    @include typography-body-sm;
+    color: rgba(255, 255, 255, 0.55);
+}
+
+.payments {
+    @include flex-wrap;
+    @include inline-stack(2);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.payment {
+    @include inline-stack(1);
+    @include typography-caption;
+    @include flex-center-y;
+    @include px(3);
+    @include py(2);
+    @include radius-sm;
+    color: rgba(255, 255, 255, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}

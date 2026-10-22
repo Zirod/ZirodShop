@@ -1,0 +1,233 @@
+@use '../../mixin//index' as *;
+
+// ============================================================
+// PAGE D'ACCUEIL — sections boutique
+// ============================================================
+
+// ── Grille produits best sellers ────────────────────────────
+
+.productGrid {
+    @include py(5);
+    @include gap(6);
+    @include grid-center;
+    @include grid-auto-fit(400px);
+    @include px(4);
+
+    @include mobile {
+        @include grid-cols(1);
+    }
+}
+
+.productImage {
+    max-height: 220px;
+    object-fit: cover;
+}
+
+.productName {
+    @include typography-h6;
+    @include mb(2);
+    color: theme(text-primary);
+}
+
+.productPrice {
+    @include typography-h6;
+    color: theme(primary);
+
+    span {
+        @include typography-body-sm;
+        @include ml(2);
+        color: theme(text-disabled);
+        text-decoration: line-through;
+        font-weight: regular;
+    }
+}
+
+.sectionFooter {
+    @include flex-center;
+    @include py(4);
+}
+
+.inlineLink {
+    @include inline-stack(2);
+    @include flex-center-y;
+    @include typography-nav-active;
+    @include transition-colors;
+    color: theme(text-link);
+
+    &:hover {
+        color: theme(text-link-hover);
+    }
+}
+
+
+// ── Bannière promo ──────────────────────────────────────────
+
+.promoBanner {
+    @include px(10);
+    @include py(10);
+    @include mx(4);
+    @include my(16);
+    @include radius-2xl;
+    @include flex-wrap;
+    @include flex-center-y;
+    @include gap-y(5);
+    @include gap-x(10);
+
+    justify-content: space-between;
+    background: linear-gradient(
+        120deg,
+        theme(primary-dark),
+        theme(primary)
+    );
+    color: theme(white);
+    box-shadow: theme(shadow-lg);
+
+    @include mobile {
+        @include px(6);
+        @include flex-column;
+        text-align: center;
+    }
+}
+
+.promoContent {
+    @include stack(3);
+}
+
+.promoBadge {
+    @include inline-stack(1);
+    @include typography-overline;
+    @include flex-center-y;
+    @include px(3);
+    @include py(1.5);
+    @include radius-badge;
+    width: fit-content;
+
+    background: theme(warning);
+    color: theme(text-primary);
+
+    @include mobile {
+        margin: 0 auto;
+    }
+}
+
+.promoTitle {
+    @include typography-h3;
+    color: theme(white);
+}
+
+.promoText {
+    @include typography-body;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+
+// ── Catégories ──────────────────────────────────────────────
+
+.categoryGrid {
+    @include px(4);
+    @include py(5);
+    @include gap-x(6);
+    @include gap-y(6);
+    @include grid;
+    @include grid-cols(2);
+
+    @include mobile {
+        @include grid-cols(1);
+    }
+}
+
+.categoryCard {
+    @include relative;
+    @include radius-card;
+    @include overflow-hidden;
+    @include transition-transform;
+    display: block;
+    text-decoration: none;
+
+    &:hover {
+        transform: translateY(-4px);
+
+        .categoryOverlay {
+            background: rgba(2, 60, 77, 0.75);
+        }
+    }
+}
+
+.categoryOverlay {
+    @include absolute-fill;
+    @include flex-between;
+    @include p(5);
+
+    background: rgba(2, 60, 77, 0.45);
+    color: theme(white);
+    transition: background 0.2s ease-in-out;
+}
+
+.categoryName {
+    @include typography-h4;
+    color: theme(white);
+}
+
+.categoryCount {
+    @include typography-body-sm;
+    color: rgba(255, 255, 255, 0.8);
+    padding-top: 0.25rem;
+}
+
+.categoryArrow {
+    @include flex-center;
+    @include radius-full;
+    @include p(2);
+    flex-shrink: 0;
+
+    background: rgba(255, 255, 255, 0.15);
+}
+
+
+// ── Nos services ────────────────────────────────────────────
+
+.serviceGrid {
+    @include px(4);
+    @include py(5);
+    @include pb(16);
+    @include gap(6);
+    @include flex-center-x;
+    @include grid-auto-fill(260px);
+}
+
+.serviceCard {
+    @include stack(3);
+    @include p(6);
+    @include radius-card;
+
+    background: theme(background-secondary);
+    text-align: center;
+    align-items: center;
+
+    @include transition-transform;
+
+    &:hover {
+        transform: translateY(-4px);
+    }
+}
+
+.serviceIcon {
+    @include flex-center;
+    @include radius-full;
+    @include p(4);
+    width: 3.5rem;
+    height: 3.5rem;
+
+    color: theme(white);
+    background: theme(primary);
+}
+
+.serviceTitle {
+    @include typography-h5;
+    color: theme(text-primary);
+}
+
+.serviceText {
+    @include typography-body-sm;
+    color: theme(text-secondary);
+}
