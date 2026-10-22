@@ -60,21 +60,14 @@ export default function LoginForm() {
                         <label className={style.fieldLabel} htmlFor="username">
                             Identifiant ou e-mail
                         </label>
-                        <Input
-                            id="username"
-                            name="username"
-                            type="text"
-                            placeholder="Votre identifiant"
-                        />
+                        <Input id="username" name="username" type="text" placeholder="Votre identifiant" />
                     </div>
 
                     <div className={style.field}>
                         <label className={style.fieldLabel} htmlFor="password">
                             Mot de passe
                         </label>
-                        <Input
-                            id="password"
-                            name="password"
+                        <Input id="password" name="password"
                             type={visible ? "text" : "password"}
                             placeholder="••••••••"
                             withIcon

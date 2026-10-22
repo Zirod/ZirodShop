@@ -4,7 +4,7 @@ import LoginForm from "./login-form";
 import style from "@style/components/layout/_auth.module.scss";
 
 export const metadata: Metadata = {
-    title: "Connexion — ZirodShop",
+    title: "Connexion - ZirodShop",
     description: "Connectez-vous à votre compte ZirodShop",
 };
 
