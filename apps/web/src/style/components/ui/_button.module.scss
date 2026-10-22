@@ -4,7 +4,7 @@
     cursor: pointer;
     outline: none;
     @include typography-button;
-    @include flex-between;
+    @include flex-center;
     @include border;
     @include radius-md;
     @include px(5);
@@ -32,6 +32,17 @@
     @include border-none;
     background: theme(secondary);
     color: theme(surface);
+
+    &:hover{
+        background: theme(secondary-hover);
+    }
+}
+
+.secondary-light{
+    @include border-none;
+    background: theme(surface);
+    color: theme(secondary);
+    border: 1px theme(secondary) solid;
 
     &:hover{
         background: theme(secondary-hover);
