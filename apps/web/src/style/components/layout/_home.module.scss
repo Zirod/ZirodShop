@@ -8,29 +8,57 @@
 
 .productGrid {
     @include py(5);
-    @include gap(6);
+    @include gap(10);
     @include grid-center;
     @include grid-auto-fit(400px);
     @include px(4);
 
     @include mobile {
+        @include px(0);
+        @include gap(5);
         @include grid-cols(1);
     }
 }
 
+.bannerIcon{
+    @include p(4);
+    @include radius-full;
+    @include transition-slow;
+    cursor: pointer;
+    width: 50px; height: 50;
+    color: theme(icon);
+    background-color: theme(background-secondary);
+
+    &:hover{
+        color: theme(primary)
+    }
+}
+
 .productImage {
-    max-height: 220px;
+    max-height: 250px;
     object-fit: cover;
 }
 
 .productName {
+    @include flex-between;
     @include typography-h6;
     @include mb(2);
-    color: theme(text-primary);
+    color: theme(text);
+}
+.note{
+    @include flex-center-y;
+    @include gap(1);
+    color: theme(warning)
+}
+
+.description{
+    @include typography-body-sm;
+    color: theme(text-secondary)
 }
 
 .productPrice {
-    @include typography-h6;
+    @include py(5);
+    @include typography-h4;
     color: theme(primary);
 
     span {
@@ -98,7 +126,7 @@
     @include typography-overline;
     @include flex-center-y;
     @include px(3);
-    @include py(1.5);
+    @include py(2);
     @include radius-badge;
     width: fit-content;
 
@@ -130,7 +158,6 @@
     @include gap-y(6);
     @include grid;
     @include grid-cols(2);
-
     @include mobile {
         @include grid-cols(1);
     }
@@ -187,12 +214,10 @@
 // ── Nos services ────────────────────────────────────────────
 
 .serviceGrid {
-    @include px(4);
     @include py(5);
     @include pb(16);
     @include gap(6);
-    @include flex-center-x;
-    @include grid-auto-fill(260px);
+    @include grid-auto-fit(260px);
 }
 
 .serviceCard {

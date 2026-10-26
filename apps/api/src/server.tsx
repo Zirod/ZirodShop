@@ -46,7 +46,7 @@ process.once("SIGINT", () => {
 })
 
 process.once("SIGTERM", () => {
-    void shutDown("SIGTERM");
+    void shutDown("SIGTERM")
 })
 
 

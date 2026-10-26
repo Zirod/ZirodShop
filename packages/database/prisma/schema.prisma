@@ -1,0 +1,18 @@
+// Prisma v7 : le générateur "prisma-client" est obligatoire (l'ancien "prisma-client-js"
+// sera supprimé). Le client est généré dans src/generated/prisma (dans les sources du
+// paquet, exporté tel quel aux consommateurs — voir "exports" du package.json).
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+// Prisma v7 : pas d'URL ici — la connexion est définie dans prisma.config.ts.
+datasource db {
+  provider = "postgresql"
+}
+
+// TODO: définir vos modèles ici, ex.
+// model User {
+//   id    String @id @default(cuid())
+//   email String @unique
+// }

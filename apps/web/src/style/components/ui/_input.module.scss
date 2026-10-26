@@ -18,6 +18,7 @@
     @include typography-input;
     @include border-none;
     @include radius-md;
+    @include py(3);
     @include px(2);
     color: theme(text);
     width: 100%;

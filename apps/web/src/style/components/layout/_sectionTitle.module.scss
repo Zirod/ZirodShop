@@ -8,7 +8,9 @@
 
 .title{
     @include typography-h1;
-    color: theme(text-primary);
+    letter-spacing: 7px;
+    text-transform: uppercase;
+    color: theme(primary);
 }
 
 .description{

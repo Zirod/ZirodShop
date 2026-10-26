@@ -58,32 +58,25 @@ export default function LoginForm() {
                 <form className={style.authForm} onSubmit={handleSubmit} noValidate>
                     <div className={style.field}>
                         <label className={style.fieldLabel} htmlFor="username">
-                            Identifiant ou e-mail
+                            Adresse E-mail
                         </label>
-                        <Input id="username" name="username" type="text" placeholder="Votre identifiant" />
+                        <Input id="username" name="username" type="email" placeholder="exemple@zirodshop.com" />
                     </div>
 
                     <div className={style.field}>
                         <label className={style.fieldLabel} htmlFor="password">
                             Mot de passe
                         </label>
-                        <Input id="password" name="password"
-                            type={visible ? "text" : "password"}
-                            placeholder="••••••••"
-                            withIcon
-                            position="right"
-                        >
-                            <button
-                                type="button"
-                                className={style.eyeButton}
-                                onClick={() => setVisible((value) => !value)}
-                                aria-label={visible ? "Masquer le mot de passe" : "Afficher le mot de passe"}
-                            >
+                        <Input id="password" name="password" type={visible ? "text" : "password"} placeholder="*****" withIcon position="right" >
+                            <button type="button" className={style.eyeButton} onClick={() => setVisible((value) => !value)} aria-label={visible ? "Masquer le mot de passe" : "Afficher le mot de passe"} >
                                 {visible ? <EyeOff size={17} /> : <Eye size={17} />}
                             </button>
                         </Input>
 
                         <div className={style.fieldHelpRow}>
+                            <a className={style.forgotLink} href="mailto:judizirod0@gmail.com">
+                                Créer un compte
+                            </a>
                             <a className={style.forgotLink} href="mailto:judizirod0@gmail.com">
                                 Mot de passe oublié ?
                             </a>
@@ -97,16 +90,14 @@ export default function LoginForm() {
                     )}
 
                     <div className={style.submitButton}>
-                        <Button
-                            type="submit"
-                            variante="primary"
-                            desc="Se connecter"
-                            loading={loading}
-                            disable={loading}
-                        />
+                        <Button type="submit" variante="primary" desc="Se connecter" loading={loading} disable={loading} />
                     </div>
                 </form>
             </div>
+
+            <p className={style.authFooter}>
+                © 2026 ZirodShop — Tous droits réservés
+            </p>
         </section>
-    );
+    )
 }

@@ -23,10 +23,12 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
     return (
-        <html lang="fr" className={`${geistSans.variable} ${geistMono.variable}`} data-theme= "light">
+        <html lang="fr" className={`${geistSans.variable} ${geistMono.variable}`} data-theme= "dark">
             <body>
               <Header />
-                {children}
+
+                { children }
+                
               <Footer/>
             </body>
         </html>

@@ -1,15 +1,23 @@
 import Fastify from "fastify";
+import logger from './config/logger.js'
+import prismaPlugin from "./plugin/prisma-plugin";
+import jwtPlugin from './plugin/jwt-plugin.js'
 
 export default function buildZirodShop(){
 
+
     const app = Fastify({
-        logger: true
+        logger,
     })
 
-    app.get("/health", async () => {
+    app.register(prismaPlugin);
+    app.register(jwtPlugin);
+
+    app.get("/health", async (request) => {
+        request.log.info("API health verification");
         return{
-            code : 200,
-            message : "Api run ok"
+            status : 200,
+            message : "ZirodShop API run OK !"
         }
     })
 

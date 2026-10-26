@@ -5,7 +5,7 @@
 */
 
 .appHead{
-    position: fixed;
+    position: relative;
     top: 0;right: 0;left: 0;
     @include z-header;
 }
@@ -79,12 +79,22 @@
 .mini_menue{
    @include flex-center-x;
    color: theme(primary);
-   @include gap(lg);
+   @include gap(md);
 }
 
 .mini_menueItem{
+    @include flex-center;
+    @include radius-full;
+    @include p(4);
+    @include transition-slow;
+    width: 50px; height: 50px;
+    background: theme(background-secondary);
     list-style: none;
     cursor: pointer;
+
+    &:hover{
+        background: theme(background-tertiary);
+    }
 }
 .mnColor{
     color: theme(accent);

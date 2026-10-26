@@ -10,7 +10,6 @@
     @include flex-column;
     @include gap(lg);
     @include min-screen-height;
-    @include p(xl);
     width: 100%;
     box-sizing: border-box;
     background:
@@ -46,7 +45,7 @@
 
 .cardTitle {
     @include typography-h3;
-    color: theme(text);
+    color: theme(primary);
 }
 
 .cardSubtitle {
@@ -66,11 +65,11 @@
 
 .fieldLabel {
     @include typography-input-label;
-    color: theme(text);
+    color: theme(text-secondary);
 }
 
 .fieldHelpRow {
-    @include flex-end;
+    @include flex-between;
     width: 100%;
 }
 
