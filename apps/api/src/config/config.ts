@@ -1,12 +1,10 @@
 import 'dotenv/config'
-import { access } from 'node:fs';
 
 /**
  * Configuration centrale de l'API.
  * Toute lecture de process.env se fait ICI et uniquement ici.
  * Le reste du code (logger, app, server...) consomme cet objet.
  */
-
 
 const config = {
     runningEnv: process.env.NODE_ENV || 'dev',
@@ -22,7 +20,8 @@ const config = {
     },
 
     auth: {
-        accessJwt: process.env.JWT_SECRET || "access secret jwt a changer en prod",
+        accessJwt: process.env.JWT_ACCESS_SECRET || "access secret jwt a changer en prod",
+        refreshJwt : process.env.JWT_REFRESH_SECRET || "access secret jwt a changer en prod",
     }
 }
 

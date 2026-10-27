@@ -1,10 +1,10 @@
 import type { FastifyInstance } from "fastify";
 import { UserRepository } from "../users/users.repository";
-import  { CreateUserSchema, LoginUserSchema }  from "@zirodshop/validation"
+import  { CreateUser, LoginUserSchema }  from "@zirodshop/validation"
 import { HttpError } from "../../config/httpError";
 //import argon2
 
-export class Autservices{
+export class AuthServices{
 
     constructor(private fastify: FastifyInstance){
         this.fastify = fastify;
@@ -13,8 +13,7 @@ export class Autservices{
     /**
      * Token generator by user élément in payload
      * return accessToken and refreshToken
-     */
-
+    */
     private generateTokens(user: {id: string, name: string, email: string}){
         const payload = {
             id: user.id,
@@ -37,8 +36,7 @@ export class Autservices{
      * 
      * return User without password with tokens
     */
-
-    async Register(data: typeof CreateUserSchema){
+    async Register(data: CreateUser){
 
         const exist = await UserRepository.getByEmail(data.email);
 
@@ -63,8 +61,6 @@ export class Autservices{
 
     };
 
-
-
     /**
      * ========= USER LOGIN ========= 
      * Verify if user already exist by email otherwise throw the error
@@ -73,7 +69,6 @@ export class Autservices{
      * 
      * return success message with tokens
     */
-
     async Login(data: typeof LoginUserSchema){
 
         const user = await UserRepository.getByEmail(data.email);
@@ -81,7 +76,7 @@ export class Autservices{
             throw HttpError.unauthorized("Invalid credentials");
         }
 
-        const isPasswordValid = "compare password data.password && user.password";
+        const isPasswordValid = "compare data.password && user.password";
         
         if(!isPasswordValid){
             throw HttpError.unauthorized("Invalid credentials");
@@ -90,8 +85,7 @@ export class Autservices{
         const tokens = this.generateTokens(user);
    
         return {
-            message: "User authenticated",
-            tokens
+            ...tokens
         }
 
     }

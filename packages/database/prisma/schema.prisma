@@ -25,4 +25,6 @@ model User{
     bornDate    DateTime
     role        String
     password    String
+    createAt    DateTime @default(now())
+    updateAt    DateTime @updatedAt
 }

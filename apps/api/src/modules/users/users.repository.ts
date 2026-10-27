@@ -1,5 +1,7 @@
 import { prisma } from "@zirodshop/database";
-import { CreateUserSchema } from "@zirodshop/validation";
+import { CreateUser } from "@zirodshop/validation";
+
+
 export class UserRepository{
 
     async getAll(){
@@ -16,9 +18,9 @@ export class UserRepository{
 
     }
 
-    static async create(data: typeof CreateUserSchema){
+    static async create(data: CreateUser){
         return await prisma.user.create({
-            data
+            data: data
         })
     }
 
