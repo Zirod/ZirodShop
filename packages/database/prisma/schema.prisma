@@ -2,13 +2,13 @@
 // sera supprimé). Le client est généré dans src/generated/prisma (dans les sources du
 // paquet, exporté tel quel aux consommateurs — voir "exports" du package.json).
 generator client {
-  provider = "prisma-client"
-  output   = "../src/generated/prisma"
+    provider = "prisma-client"
+    output   = "../src/generated/prisma"
 }
 
 // Prisma v7 : pas d'URL ici — la connexion est définie dans prisma.config.ts.
 datasource db {
-  provider = "postgresql"
+    provider = "postgresql"
 }
 
 // TODO: définir vos modèles ici, ex.
@@ -16,3 +16,13 @@ datasource db {
 //   id    String @id @default(cuid())
 //   email String @unique
 // }
+
+model User{
+    id          String @id @default(ulid())
+    name        String
+    surname     String
+    email       String @unique
+    bornDate    DateTime
+    role        String
+    password    String
+}

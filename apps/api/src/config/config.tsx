@@ -1,4 +1,5 @@
 import 'dotenv/config'
+import { access } from 'node:fs';
 
 /**
  * Configuration centrale de l'API.
@@ -21,7 +22,7 @@ const config = {
     },
 
     auth: {
-        jwt_secret: process.env.JWT_SECRET,
+        accessJwt: process.env.JWT_SECRET || "access secret jwt a changer en prod",
     }
 }
 

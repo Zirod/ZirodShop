@@ -1,12 +1,33 @@
-import { FastifyRequest, FastifyReply } from "fastify";
 import jwt from "@fastify/jwt";
 import config from "../config/config";
 import fp from "fastify-plugin";
 
+declare module '@fastify/jwt'{
+    interface FastifyJWT{
+        payload: {
+            id: string,
+            name: string,
+            email: string
+        };
+        user: {
+            id: string,
+            name: string,
+            email: string
+        }
+    }
+}
+
 export default fp(async(zirodShop) => {
 
-    zirodShop.register(jwt, {
-        secret: config.auth.jwt_secret,
+    await zirodShop.register(jwt, {
+        secret: config.auth.accessJwt,
+        sign: {
+            expiresIn: '15min',
+            algorithm: 'HS256'
+        },
+        cookie: {
+            cookieName: "accessToken",
+            signed: false
+        }
     })
-
 })

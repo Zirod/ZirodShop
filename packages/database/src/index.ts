@@ -30,7 +30,7 @@ const adapter = new PrismaPg({
 export const prisma: PrismaDb =
   globalThis.__zirodshopPrisma ?? new PrismaClient({ adapter });
 
-if (process.env.NODE_ENV !== "production") {
+if (process.env.NODE_ENV !== "prod") {
   globalThis.__zirodshopPrisma = prisma;
 }
 
