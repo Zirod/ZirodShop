@@ -3,6 +3,7 @@ import logger from './config/logger.ts'
 import prismaPlugin from "./plugin/prisma-plugin.ts";
 import jwtPlugin from './plugin/jwt-plugin.ts'
 import authRoute from "./modules/auth/auth.route.ts";
+import userRoute from "./modules/users/user.route.ts";
 
 export default function buildZirodShop(){
 
@@ -18,6 +19,7 @@ export default function buildZirodShop(){
 
     // Registration of all routes
     zirodShop.register(authRoute);
+    zirodShop.register(userRoute);
 
 
     // API health check

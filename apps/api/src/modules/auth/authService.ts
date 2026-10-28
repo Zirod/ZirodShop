@@ -1,3 +1,4 @@
+import '@fastify/jwt';
 import type { FastifyInstance } from "fastify";
 import { UserRepository } from "../users/users.repository";
 import  { CreateUser, LoginUserSchema }  from "@zirodshop/validation"

@@ -9,13 +9,28 @@ export const CreateUserSchema = Type.Object({
     password: Type.String({ minLength: 8}),
     confirmPass: Type.String({ minLength: 8})
 });
-
 export type CreateUserInput = Static<typeof CreateUserSchema>;
 export type CreateUser = Omit<Static<typeof CreateUserSchema>, "confirmPass">;
+
 
 export const LoginUserSchema = Type.Object({
     email: Type.String({ format: "email" }),
     password: Type.String({ minLength: 8})
 });
-
 export type LoginUserInput = Static < typeof LoginUserSchema >
+
+
+export const UserUpdateSchema = Type.Object({
+    name: Type.String({ minLength: 2 }),
+    surname: Type.String({ minLength: 3}),
+    bornDate: Type.String({ format: "date" }),
+});
+export type UpdateUser = Static<typeof UserUpdateSchema>;
+
+
+export const PasswordUpdateSchema = Type.Object({
+    password: Type.String({ minLength: 8}),
+    confirmPass: Type.String({ minLength: 8})
+});
+export type updatePassword = Omit<Static<typeof PasswordUpdateSchema>, "confirmPass">;
+

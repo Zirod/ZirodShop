@@ -5,14 +5,23 @@ import fp from "fastify-plugin";
 declare module '@fastify/jwt'{
     interface FastifyJWT{
         payload: {
-            id: string,
-            name: string,
-            email: string
+            id: string;
+            name: string;
+            surname: string;
+            email: string;
+            bornDate: string;
+            role: string;
+            createAt: string
         };
         user: {
-            id: string,
-            name: string,
-            email: string
+            id: string;
+            name: string;
+            surname: string;
+            email: string;
+            bornDate: string;
+            role: string;
+            createAt: string
+
         }
     }
 }
