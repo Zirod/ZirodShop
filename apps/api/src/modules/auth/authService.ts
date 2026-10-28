@@ -14,11 +14,13 @@ export class AuthServices{
      * Token generator by user élément in payload
      * return accessToken and refreshToken
     */
-    private generateTokens(user: {id: string, name: string, email: string}){
+    private generateTokens(user: {id: string, name: string, email: string, role: string, createAt: Date}){
         const payload = {
             id: user.id,
             name: user.name,
-            email: user.email
+            email: user.email,
+            role: user.role,
+            createAt: user.createAt
         }
 
         return {
@@ -44,15 +46,15 @@ export class AuthServices{
             throw HttpError.conflict("User already exist !");
         }
 
-        const passworHashed = "use argon2 to hash password";
+        const passworHashed = data.password + " use argon 2 to hash it";
 
         const newUser = await UserRepository.create({
             ...data,
-            passworHashed
+            password: passworHashed
         });
 
-        const { password, ...safeUser } = data;
-        const tokens = this.generateTokens(newUser);
+        const { password, ...safeUser } = newUser;
+        const tokens = this.generateTokens(safeUser);
 
         return {
             userInfo : safeUser,

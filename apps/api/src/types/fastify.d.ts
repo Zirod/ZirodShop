@@ -1,4 +1,4 @@
-import "@fastify/jwt";
+import jwt from "@fastify/jwt";
 import type { FastifyJwtNamespace } from "@fastify/jwt";
 
 declare module "@fastify/jwt" {

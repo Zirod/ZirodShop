@@ -12,50 +12,6 @@ const getAuthService = (request: FastifyRequest) => new AuthServices(request.ser
 
 export const AuthController = {
 
-    login: async (request: FastifyRequest<{ Body: typeof LoginUserSchema}>, reply: FastifyReply) => {
-
-        try {
-
-            const { accessToken, refreshToken } = await getAuthService(request).Login(request.body);
-
-            reply.setCookie("accessToken", accessToken, {
-                httpOnly: true,
-                secure: config.runningEnv === "prod",
-                sameSite: "lax",
-                maxAge: ACCESS_COOKIE_MAX_AGE,
-                path: '/'
-            })
-
-            reply.setCookie("refreshToken", refreshToken, {
-                httpOnly: true,
-                secure: config.runningEnv === "prod",
-                sameSite: "lax",
-                maxAge: REFRESH_COOKIE_MAX_AGE,
-                path: '/'
-            })
-
-            return reply.code(200).send({
-                message: "User authenticated",
-            })
-
-
-        } catch (error) {
-
-            if(error instanceof HttpError){
-                return reply.code(error.statusCode).send({
-                    message: error.message
-                })
-            }
-
-            request.log.error(error);
-            return reply.code(500).send({
-                message : "Internal server error"
-            })
-        }        
-    },
-
-
-
     register: async (request: FastifyRequest<{ Body: CreateUserInput }>, reply: FastifyReply) => {
 
         const { confirmPass, ...userData} = request.body;
@@ -104,6 +60,49 @@ export const AuthController = {
                 message : "Internal server error"
             })
         }
+    },
+
+
+    login: async (request: FastifyRequest<{ Body: typeof LoginUserSchema}>, reply: FastifyReply) => {
+
+        try {
+
+            const { accessToken, refreshToken } = await getAuthService(request).Login(request.body);
+
+            reply.setCookie("accessToken", accessToken, {
+                httpOnly: true,
+                secure: config.runningEnv === "prod",
+                sameSite: "lax",
+                maxAge: ACCESS_COOKIE_MAX_AGE,
+                path: '/'
+            })
+
+            reply.setCookie("refreshToken", refreshToken, {
+                httpOnly: true,
+                secure: config.runningEnv === "prod",
+                sameSite: "lax",
+                maxAge: REFRESH_COOKIE_MAX_AGE,
+                path: '/'
+            })
+
+            return reply.code(200).send({
+                message: "User authenticated",
+            })
+
+
+        } catch (error) {
+
+            if(error instanceof HttpError){
+                return reply.code(error.statusCode).send({
+                    message: error.message
+                })
+            }
+
+            request.log.error(error);
+            return reply.code(500).send({
+                message : "Internal server error"
+            })
+        }        
     },
 
 }
