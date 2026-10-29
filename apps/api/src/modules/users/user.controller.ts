@@ -1,6 +1,6 @@
 import { FastifyRequest, FastifyReply } from "fastify";
 import { UserServices } from "./user.services";
-import { CreateUserInput, UpdateUser, updatePassword } from '@zirodshop/validation';
+import { CreateUserInput, UpdateUser } from '@zirodshop/validation';
 import { HttpError } from "../../config/httpError";
 import '@fastify/jwt';
 

@@ -1,4 +1,4 @@
-import 'dotenv/config'
+import dotenv from "dotenv"
 import { defineConfig, env } from 'prisma/config'
 
 /**
@@ -9,6 +9,10 @@ import { defineConfig, env } from 'prisma/config'
  * NB : à l'exécution, c'est le client généré via l'adaptateur pg (src/index.ts)
  * qui consomme process.env.DATABASE_URL — l'app (apps/api) charge son propre .env.
  */
+
+dotenv.config({
+  path: "../../apps/api/.env",
+})
 export default defineConfig({
   schema: 'prisma/schema.prisma',
   migrations: {

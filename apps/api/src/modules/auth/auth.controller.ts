@@ -1,7 +1,7 @@
+import '@fastify/cookie'
 import { FastifyRequest, FastifyReply } from "fastify";
 import { type CreateUserInput, type LoginUserSchema} from "@zirodshop/validation";
 import { AuthServices } from "./authService";
-import '@fastify/cookie'
 import config from "../../config/config";
 import { HttpError } from "../../config/httpError";
 
@@ -43,6 +43,7 @@ export const AuthController = {
             })
 
             return reply.code(201).send({
+                success: true,
                 massage: "user created successfully",
                 userInfo
             })
@@ -86,6 +87,7 @@ export const AuthController = {
             })
 
             return reply.code(200).send({
+                success: true,
                 message: "User authenticated",
             })
 

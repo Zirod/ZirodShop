@@ -18,7 +18,7 @@ export default function buildZirodShop(){
 
 
     // Registration of all routes
-    zirodShop.register(authRoute);
+    zirodShop.register(authRoute, { prefix: "/auth"});
     zirodShop.register(userRoute);
 
 

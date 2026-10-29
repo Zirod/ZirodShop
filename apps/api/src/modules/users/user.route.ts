@@ -1,30 +1,8 @@
-import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
+import { FastifyInstance } from "fastify";
 import { CreateUserSchema, PasswordUpdateSchema, UserUpdateSchema, UpdateUser } from "@zirodshop/validation";
 import { UserController } from "./user.controller";
-import '@fastify/jwt';
+import { authenticate, adminOnly } from "../../hook/auth.hook";
 
-/**
- * Verifie le accessToken (header Authorization ou cookie) avant la route
- */
-const authenticate = async (request: FastifyRequest, reply: FastifyReply) => {
-    await request.jwtVerify();
-};
-
-/**
- * Verifie le token puis exige le role "admin" pour les routes sensibles
- */
-const adminOnly = async (request: FastifyRequest, reply: FastifyReply) => {
-
-    await request.jwtVerify();
-
-    const { role } = request.user as { role: string };
-
-    if (role !== "admin") {
-        return reply.code(403).send({
-            message: "Admin access required"
-        })
-    }
-}
 
 export default function userRoute(zirodShop: FastifyInstance) {
 

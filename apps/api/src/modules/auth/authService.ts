@@ -15,13 +15,16 @@ export class AuthServices{
      * Token generator by user élément in payload
      * return accessToken and refreshToken
     */
-    private generateTokens(user: {id: string, name: string, email: string, role: string, createAt: Date}){
+    private generateTokens(user: {id: string, name: string, surname: string, email: string, bornDate: Date, role: string, createAt: Date, updateAt: Date}){
         const payload = {
             id: user.id,
             name: user.name,
+            surname: user.surname,
             email: user.email,
+            bornDate: user.bornDate,
             role: user.role,
-            createAt: user.createAt
+            createAt: user.createAt,
+            updateAt: user.updateAt
         }
 
         return {

@@ -279,7 +279,7 @@ export type UserCreateInput = {
   surname: string
   email: string
   bornDate: Date | string
-  role: string
+  role?: string
   password: string
   createAt?: Date | string
   updateAt?: Date | string
@@ -291,7 +291,7 @@ export type UserUncheckedCreateInput = {
   surname: string
   email: string
   bornDate: Date | string
-  role: string
+  role?: string
   password: string
   createAt?: Date | string
   updateAt?: Date | string
@@ -327,7 +327,7 @@ export type UserCreateManyInput = {
   surname: string
   email: string
   bornDate: Date | string
-  role: string
+  role?: string
   password: string
   createAt?: Date | string
   updateAt?: Date | string

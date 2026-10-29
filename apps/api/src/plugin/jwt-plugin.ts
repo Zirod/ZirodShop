@@ -9,18 +9,18 @@ declare module '@fastify/jwt'{
             name: string;
             surname: string;
             email: string;
-            bornDate: string;
+            bornDate: Date;
             role: string;
-            createAt: string
+            createAt: Date
         };
         user: {
             id: string;
             name: string;
             surname: string;
             email: string;
-            bornDate: string;
+            bornDate: Date;
             role: string;
-            createAt: string
+            createAt: Date
 
         }
     }

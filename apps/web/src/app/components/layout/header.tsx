@@ -1,7 +1,8 @@
 import style from '@style/components/layout/_header.module.scss'
 import Link from 'next/link';
-import { Bell, User2Icon, Mail, Phone, Search, LucideShoppingBasket } from 'lucide-react';
+import { Mail, Phone, Search } from 'lucide-react';
 import Input from '../ui/input';
+import MiniMenu from './mini-menu';
 
 export default function Header(){
 
@@ -36,12 +37,7 @@ export default function Header(){
                 </Input>
 
                 {/* Mini menue */}
-                <ul className={style.mini_menue}>
-                    <li className={style.mini_menueItem}><Bell className={style.mnColor}/></li>
-                    <li className={style.mini_menueItem}><LucideShoppingBasket className={style.mnColor}/></li>
-                    <Link href="auth/"> <li className={style.mini_menueItem}><User2Icon className={style.mnColor}/></li> </Link>
-
-                </ul>
+                <MiniMenu />
             </div>
 
             {/* App navbar */}
