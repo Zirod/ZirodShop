@@ -1,4 +1,5 @@
 import Fastify from "fastify";
+import cookie from "@fastify/cookie";
 import logger from './config/logger.ts'
 import prismaPlugin from "./plugin/prisma-plugin.ts";
 import jwtPlugin from './plugin/jwt-plugin.ts'
@@ -14,6 +15,7 @@ export default function buildZirodShop(){
 
     // Registration of all pluginsss
     zirodShop.register(prismaPlugin);
+    zirodShop.register(cookie);
     zirodShop.register(jwtPlugin);
 
 

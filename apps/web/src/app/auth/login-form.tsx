@@ -8,6 +8,8 @@ import style from "@style/components/layout/_auth.module.scss";
 import Input from "../components/ui/input";
 import Button from "../components/ui/button";
 
+import { LoginAction } from "./auth.action";
+
 export default function LoginForm() {
     const router = useRouter();
     const [visible, setVisible] = useState(false);
@@ -17,24 +19,24 @@ export default function LoginForm() {
     async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
         event.preventDefault();
 
-        const data = new FormData(event.currentTarget);
-        const username = String(data.get("username") ?? "").trim();
-        const password = String(data.get("password") ?? "");
-
-        if (!username || !password) {
-            setError("Veuillez renseigner votre identifiant et votre mot de passe.");
-            return;
-        }
+        const formData = new FormData(event.currentTarget);
 
         setLoading(true);
         setError(null);
 
-        try {
-            // TODO : remplacer par le vrai appel d'authentification (API, NextAuth, etc.)
-            await new Promise((resolve) => setTimeout(resolve, 900));
-            router.push("/");
-        } catch {
-            setError("Connexion impossible pour le moment. Réessayez plus tard.");
+         try {
+            
+            const response = await LoginAction(formData);
+
+            if (!response.success) {
+                setError(response.message);
+                return;
+            }
+
+            router.push("/")
+
+        } catch(error) {
+            return error
         } finally {
             setLoading(false);
         }
@@ -60,7 +62,7 @@ export default function LoginForm() {
                         <label className={style.fieldLabel} htmlFor="username">
                             Adresse E-mail
                         </label>
-                        <Input id="username" name="username" type="email" placeholder="exemple@zirodshop.com" />
+                        <Input id="username" name="email" type="email" placeholder="exemple@zirodshop.com" />
                     </div>
 
                     <div className={style.field}>
@@ -74,10 +76,10 @@ export default function LoginForm() {
                         </Input>
 
                         <div className={style.fieldHelpRow}>
-                            <a className={style.forgotLink} href="mailto:judizirod0@gmail.com">
+                            <a className={style.forgotLink} href="/register">
                                 Créer un compte
                             </a>
-                            <a className={style.forgotLink} href="mailto:judizirod0@gmail.com">
+                            <a className={style.forgotLink} href="/recoverypassword">
                                 Mot de passe oublié ?
                             </a>
                         </div>

@@ -28,6 +28,7 @@
     "packages/*"
   ],
   "dependencies": {
+    "argon2": "^0.45.1",
     "fastify": "^5.12.7",
     "immutable": "^5.1.9",
     "pino": "^10.4.0"

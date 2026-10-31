@@ -1,4 +1,5 @@
 import '@fastify/jwt';
+import argon2 from 'argon2'
 import type { FastifyInstance } from "fastify";
 import { UserRepository } from "../users/users.repository";
 import  { CreateUser, LoginUserSchema }  from "@zirodshop/validation"
@@ -50,7 +51,7 @@ export class AuthServices{
             throw HttpError.conflict("User already exist !");
         }
 
-        const passworHashed = data.password + " use argon 2 to hash it";
+        const passworHashed = await argon2.hash(data.password)
 
         const newUser = await UserRepository.create({
             ...data,
@@ -82,7 +83,7 @@ export class AuthServices{
             throw HttpError.unauthorized("Invalid credentials");
         }
 
-        const isPasswordValid = "compare data.password && user.password";
+        const isPasswordValid = await argon2.verify(user.password, data.password)
         
         if(!isPasswordValid){
             throw HttpError.unauthorized("Invalid credentials");

@@ -1,42 +1,35 @@
-import jwt from "@fastify/jwt";
-import config from "../config/config";
+import type { FastifyRequest, FastifyReply } from "fastify";
 import fp from "fastify-plugin";
+import jwt from "@fastify/jwt";
+import config from "../config/config.js";
 
-declare module '@fastify/jwt'{
-    interface FastifyJWT{
-        payload: {
-            id: string;
-            name: string;
-            surname: string;
-            email: string;
-            bornDate: Date;
-            role: string;
-            createAt: Date
-        };
-        user: {
-            id: string;
-            name: string;
-            surname: string;
-            email: string;
-            bornDate: Date;
-            role: string;
-            createAt: Date
+export default fp(async (cauris) => {
 
-        }
-    }
-}
-
-export default fp(async(zirodShop) => {
-
-    await zirodShop.register(jwt, {
+    cauris.register(jwt, {
         secret: config.auth.accessJwt,
-        sign: {
-            expiresIn: '15min',
-            algorithm: 'HS256'
+        sign:{
+            expiresIn: "15m"
         },
-        cookie: {
-            cookieName: "accessToken",
-            signed: false
-        }
+        namespace: "access"
+    });
+
+    cauris.register(jwt, {
+        secret: config.auth.refreshJwt,
+        sign: {
+            expiresIn: "7d"
+        },
+        namespace: "refresh"
     })
-})
+
+    cauris.decorate("authenticate", async function (request: FastifyRequest, reply: FastifyReply) {
+        try {
+            await request.accessJwtVerify();
+        } catch (err) {
+            return reply.status(401).send({
+                success: false,
+                message: "Unauthorized",
+            });
+        }
+    });
+
+});

@@ -8,8 +8,18 @@ export class UserRepository{
     }
 
     static async create(data: CreateUser){
+
+        const bornDate = new Date(`${data.bornDate}T00:00:00.000Z`)
+
+        if(Number.isNaN(bornDate.getTime())){
+            throw new Error("Ivalid data")
+        }
+
         return await prisma.user.create({
-            data: data
+            data: {
+                ...data,
+                bornDate
+            }
         })
     }
 

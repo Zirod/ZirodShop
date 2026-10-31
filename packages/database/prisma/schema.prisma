@@ -11,11 +11,6 @@ datasource db {
     provider = "postgresql"
 }
 
-// TODO: définir vos modèles ici, ex.
-// model User {
-//   id    String @id @default(cuid())
-//   email String @unique
-// }
 
 model User{
     id          String @id @default(ulid())
@@ -26,5 +21,40 @@ model User{
     role        String @default("USER")
     password    String
     createAt    DateTime @default(now())
-    updateAt    DateTime @updatedAt
+    updateAt    DateTime @default(now()) @updatedAt
+
+    cart        ShopingCart?
+}
+
+model Product{
+    id          String @id @default(uuid())
+    name        String
+    desc        String
+    price       Float
+    stock       Int
+    createAt    DateTime
+    UddataAt    DateTime @updatedAt
+    note        Float
+
+    carts       ShopingCartProduct[]
+}
+
+model ShopingCart{
+    id          String @id @default(ulid())
+    internalId  String
+    userId      String @unique
+    status      String @default("PENDING")
+
+    user        User    @relation(fields: [userId], references: [id])
+    products    ShopingCartProduct[]
+}
+
+model ShopingCartProduct{
+    id          String @id @default(uuid())
+    cartId      String
+    productId   String
+    quantity    Int     @default(1)
+
+    cart        ShopingCart @relation(fields: [cartId], references: [id])
+    product     Product     @relation(fields: [productId], references: [id])
 }

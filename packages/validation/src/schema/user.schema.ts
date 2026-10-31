@@ -5,7 +5,6 @@ export const CreateUserSchema = Type.Object({
     surname: Type.String({ minLength: 3}),
     email: Type.String({ format: "email" }),
     bornDate: Type.String({ format: "date" }),
-    role: Type.String(),
     password: Type.String({ minLength: 8}),
     confirmPass: Type.String({ minLength: 8})
 });
