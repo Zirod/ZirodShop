@@ -1,60 +1,51 @@
-// Prisma v7 : le générateur "prisma-client" est obligatoire (l'ancien "prisma-client-js"
-// sera supprimé). Le client est généré dans src/generated/prisma (dans les sources du
-// paquet, exporté tel quel aux consommateurs — voir "exports" du package.json).
 generator client {
-    provider = "prisma-client"
-    output   = "../src/generated/prisma"
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
 }
 
-// Prisma v7 : pas d'URL ici — la connexion est définie dans prisma.config.ts.
 datasource db {
-    provider = "postgresql"
+  provider = "postgresql"
 }
 
-
-model User{
-    id          String @id @default(ulid())
-    name        String
-    surname     String
-    email       String @unique
-    bornDate    DateTime
-    role        String @default("USER")
-    password    String
-    createAt    DateTime @default(now())
-    updateAt    DateTime @default(now()) @updatedAt
-
-    cart        ShopingCart?
+model User {
+  id       String       @id @default(ulid())
+  name     String
+  surname  String
+  email    String       @unique
+  bornDate DateTime
+  role     String       @default("USER")
+  password String
+  createAt DateTime     @default(now())
+  updateAt DateTime     @default(now()) @updatedAt
+  cart     ShopingCart?
 }
 
-model Product{
-    id          String @id @default(uuid())
-    name        String
-    desc        String
-    price       Float
-    stock       Int
-    createAt    DateTime
-    UddataAt    DateTime @updatedAt
-    note        Float
-
-    carts       ShopingCartProduct[]
+model Product {
+  id       String               @id @default(uuid())
+  name     String
+  desc     String
+  price    Float
+  stock    Int
+  createAt DateTime
+  UddataAt DateTime             @updatedAt
+  note     Float
+  carts    ShopingCartProduct[]
 }
 
-model ShopingCart{
-    id          String @id @default(ulid())
-    internalId  String
-    userId      String @unique
-    status      String @default("PENDING")
-
-    user        User    @relation(fields: [userId], references: [id])
-    products    ShopingCartProduct[]
+model ShopingCart {
+  id         String               @id @default(ulid())
+  internalId String
+  userId     String               @unique
+  status     String               @default("PENDING")
+  user       User                 @relation(fields: [userId], references: [id])
+  products   ShopingCartProduct[]
 }
 
-model ShopingCartProduct{
-    id          String @id @default(uuid())
-    cartId      String
-    productId   String
-    quantity    Int     @default(1)
-
-    cart        ShopingCart @relation(fields: [cartId], references: [id])
-    product     Product     @relation(fields: [productId], references: [id])
+model ShopingCartProduct {
+  id        String      @id @default(uuid())
+  cartId    String
+  productId String
+  quantity  Int         @default(1)
+  cart      ShopingCart @relation(fields: [cartId], references: [id])
+  product   Product     @relation(fields: [productId], references: [id])
 }

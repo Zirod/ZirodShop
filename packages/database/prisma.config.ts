@@ -1,5 +1,9 @@
 import dotenv from "dotenv"
 import { defineConfig, env } from 'prisma/config'
+import { dirname, resolve } from "node:path";
+import { fileURLToPath } from "node:url";
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 /**
  * Configuration Prisma v7 (lue par la CLI : migrate, db push, studio...).
@@ -11,7 +15,7 @@ import { defineConfig, env } from 'prisma/config'
  */
 
 dotenv.config({
-  path: "../../apps/api/.env",
+  path: resolve(__dirname, "../../apps/api/.env"),
 })
 export default defineConfig({
   schema: 'prisma/schema.prisma',
