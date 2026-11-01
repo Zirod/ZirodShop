@@ -1,5 +1,5 @@
 {
-  "name": "E-COMMERCE",
+  "name": "zirodshop",
   "private": true,
   "scripts": {
     "build": "turbo run build",
@@ -9,6 +9,7 @@
     "check-types": "turbo run check-types"
   },
   "devDependencies": {
+    "pino-pretty": "^13.2.0",
     "prettier": "^3.7.4",
     "turbo": "^2.10.11",
     "typescript": "5.9.2"
@@ -25,5 +26,26 @@
   "workspaces": [
     "apps/*",
     "packages/*"
-  ]
+  ],
+  "dependencies": {
+    "argon2": "^0.45.1",
+    "fastify": "^5.12.7",
+    "immutable": "^5.1.9",
+    "pino": "^10.4.0"
+  },
+  "version": "1.0.0",
+  "description": "This Turborepo starter is maintained by the Turborepo core team.",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zirod/ZirodShop.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/Zirod/ZirodShop/issues"
+  },
+  "homepage": "https://github.com/Zirod/ZirodShop#readme"
 }
