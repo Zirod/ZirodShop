@@ -6,15 +6,23 @@
 // ============================================================
 
 .authPage {
+    @include py(32);
     @include flex-center;
     @include flex-column;
-    @include gap(lg);
-    @include min-screen-height;
     width: 100%;
     box-sizing: border-box;
     background:
         radial-gradient(1100px 550px at 15% -10%, theme(primary-light), transparent 60%),
         linear-gradient(165deg, theme(primary-dark) 0%, #052a3a 55%, #071118 100%);
+}
+
+@include mobile{
+    .authPage{
+        @include py(20);
+    }
+}
+.row{
+    @include flex-center
 }
 
 .brand {
@@ -31,9 +39,9 @@
 .authCard {
     @include stack(lg);
     width: 100%;
-    max-width: 430px;
+    max-width: 700px;
     @include p(2xl);
-    @include radius-2xl;
+    @include radius-card;
     background: theme(surface);
     box-shadow: theme(shadow-modal);
 }
@@ -75,11 +83,13 @@
 
 .forgotLink {
     @include typography-body-xs;
+    @include transition-slow;
+    text-align: center;
     color: theme(text-link);
+    cursor: pointer;
 
     &:hover {
         color: theme(text-link-hover);
-        text-decoration: underline;
     }
 }
 
@@ -95,6 +105,7 @@
 
 .errorBox {
     width: 100%;
+    @include flex-center;
     @include typography-body-sm;
     @include p(3);
     @include radius-md;

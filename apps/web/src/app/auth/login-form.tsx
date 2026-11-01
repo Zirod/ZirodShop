@@ -10,7 +10,11 @@ import Button from "../components/ui/button";
 
 import { LoginAction } from "./auth.action";
 
-export default function LoginForm() {
+interface LoginFormProps {
+    onSwitch: () => void;
+}
+
+export default function LoginForm({onSwitch}: LoginFormProps) {
     const router = useRouter();
     const [visible, setVisible] = useState(false);
     const [loading, setLoading] = useState(false);
@@ -51,7 +55,7 @@ export default function LoginForm() {
 
             <div className={style.authCard}>
                 <div className={style.cardHeader}>
-                    <h1 className={style.cardTitle}>Se connecter à ZirodShop</h1>
+                    <h1 className={style.cardTitle}>Se connecter</h1>
                     <p className={style.cardSubtitle}>
                         Bienvenue ! Entrez vos identifiants pour accéder à votre compte.
                     </p>
@@ -76,7 +80,7 @@ export default function LoginForm() {
                         </Input>
 
                         <div className={style.fieldHelpRow}>
-                            <a className={style.forgotLink} href="/register">
+                            <a className={style.forgotLink} onClick={onSwitch}>
                                 Créer un compte
                             </a>
                             <a className={style.forgotLink} href="/recoverypassword">

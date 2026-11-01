@@ -1,16 +1,20 @@
-import type { Metadata } from "next";
+"use client";
+
+import { useState } from "react";
 
 import LoginForm from "./login-form";
-
-export const metadata: Metadata = {
-    title: "Connexion - ZirodShop",
-    description: "Connectez-vous à votre compte ZirodShop",
-};
+import RegisterForm from "./register-form";
 
 export default function AuthPage() {
+    const [isRegister, setIsRegister] = useState(false);
+
     return (
         <>
-            <LoginForm />
+            {isRegister ? (
+                <RegisterForm onSwitch={() => setIsRegister(false)} />
+            ) : (
+                <LoginForm onSwitch={() => setIsRegister(true)} />
+            )}
         </>
     );
 }
