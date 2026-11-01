@@ -6,7 +6,7 @@
 // ============================================================
 
 .authPage {
-    @include py(32);
+    @include py(10);
     @include flex-center;
     @include flex-column;
     width: 100%;

@@ -120,7 +120,7 @@
     @include z-popover;
     @include radius-card;
     @include p(3);
-    min-width: 220px;
+    min-width: 300px;
     background: theme(surface);
     border: 1px solid theme(border);
     box-shadow: theme(shadow-card);
@@ -140,7 +140,7 @@
 
 .miniPopoverTitle{
     @include typography-label;
-    display: block;
+    @include flex-center-x;
     @include px(3);
     @include pb(2);
     color: theme(text-secondary);
