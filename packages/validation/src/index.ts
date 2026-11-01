@@ -1,1 +1,1 @@
-export * from "./schema/user.schema.ts";
+export * from "./schema/user.schema";
