@@ -6,15 +6,23 @@ interface CardProps{
     header?: ReactNode,
     body: ReactNode,
     footer?:ReactNode
+    banner?: ReactNode
     icon?: ReactNode,
     stars?: number
 }
 
-export default function Card({ header, body, footer, icon, stars } : CardProps) {
+export default function Card({ header, body, footer, banner,  icon, stars } : CardProps) {
 
     return(
 
         <div className={style.cardContainer}>
+
+            {banner && (
+                <div className={ style.banner }>
+                    { banner }
+                </div>
+            )}
+            
             <div className={style.header}>
                 {icon && <div className={style.iconContainer}>{icon}</div>}
                 {header && <span>{header}</span>}

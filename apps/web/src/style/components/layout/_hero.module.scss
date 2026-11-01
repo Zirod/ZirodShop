@@ -5,19 +5,19 @@
     @include flex-center-y  ;
     background-image: url('../../../../public/hero-bg.jpg');
     width: 100%;
-    background-position: top;
-    background-size:cover;
+    background-position:center;
+    background-size:auto;
     background-repeat: no-repeat;
     background-attachment: absolute;
     background-size: 100%;
-    min-height: 90vh;
+    min-height: 75vh;
     position: relative;
 
     &::before{
         content: "";
         background: linear-gradient(45deg, rgba(0, 48, 67, 0.579), rgba(162, 248, 250, 0.331));
         position: absolute;
-        height: 90vh;
+        height: 75vh;
         top:0; right:0;left: 0;bottom: 0;
     }
 
@@ -34,17 +34,17 @@
 
 .heroTitle{
     @include typography-h1;
-    color: theme(surface-active);
+    color: theme(secondary-light);
 
     .heroTitle.firstPart{
-        color: theme(surface);
+        color: theme(secondary-light);
     }
 }
 
 .heroDescription{
     @include py(md);
     @include typography-body-lg;
-    color: theme(surface);
+    color: theme(secondary-light);
 }
 .btn_container{
     @include gap(3);

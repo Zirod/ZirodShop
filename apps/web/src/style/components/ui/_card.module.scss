@@ -2,21 +2,38 @@
 
 .cardContainer{
     padding: 0;
+    position: relative;
     @include radius-card;
     @include typography-body;
+    @include transition-slow;
     background-color: theme(surface);
     box-shadow: theme(shadow-card);
     width: 100%;
-    transition: .2s ease-in-out;
 
     &:hover{
         box-shadow: theme(shadow-md);
+        transform: translateY(-10px);
+
+        .banner{
+            display:grid;
+        }
     }
+}
+.banner{
+    @include p(3);
+    @include gap(4);
+    @include z-header;
+    @include radius-full;
+    @include flex-column;
+    display:none;
+    position: absolute;
+    right:5; top: 10;
 }
 
 .header{
     color: theme(text-secondary);
     &:has(img){
+        position: relative;
         padding: 0px;
         &.image{
             border-radius: 10px;
@@ -29,12 +46,15 @@
 }
 
 .body{
-    @include p(3);
+    @include px(3);
+    @include pb(5);
     color: theme(text-primary);
 }
 
 .footer{
-    @include p(3);
+    @include p(5);
+    @include flex-center;
+    @include gap(5);
     color: theme(text-tight);
 }
 

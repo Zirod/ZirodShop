@@ -26,7 +26,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <html lang="fr" className={`${geistSans.variable} ${geistMono.variable}`} data-theme= "light">
             <body>
               <Header />
-                {children}
+
+                { children }
+                
               <Footer/>
             </body>
         </html>

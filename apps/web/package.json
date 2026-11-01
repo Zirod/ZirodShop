@@ -1,5 +1,5 @@
 {
-  "name": "web",
+  "name": "@ZirodShop/web",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "bootstrap": "^5.3.8",
+    "immutable": "^5.1.9",
     "lucide-react": "^1.46.0",
     "next": "^16.3.5",
     "react": "19.2.8",
@@ -17,6 +18,7 @@
     "sass": "^1.103.1"
   },
   "devDependencies": {
+    "@zirodshop/validation": "*",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",

@@ -6,7 +6,7 @@ import Card from "./components/ui/card";
 import Button from "./components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
-import { Truck, ShieldCheck,  Headset, RotateCcw, ArrowRight, ShoppingCart, Percent, Heart } from "lucide-react";
+import { Truck, ShieldCheck,  Headset, RotateCcw, ArrowRight, Percent, Star, LinkIcon, Heart, ShoppingCartPlus } from "lucide-react";
 
 // ────────────────────────────────────────────────────────────
 // Données (à remplacer plus tard par les données de la boutique)
@@ -15,33 +15,39 @@ import { Truck, ShieldCheck,  Headset, RotateCcw, ArrowRight, ShoppingCart, Perc
 const bestSellers = [
     {
         id: 1, name: "Casque sans fil Pro",
-        image: "/hero-bg.jpg",
+        image: "/fg.jpg",
         price: "25 000 FCFA", oldPrice: "32 000 FCFA",
+        note: 4.3
     },
     {
         id: 2, name: "Montre connectée Smart X",
         image: "/hero-bg.jpg",
         price: "18 500 FCFA", oldPrice: "24 000 FCFA",
+        note: 4.3
     },
     {
         id: 3, name: "Sac à dos urbain 25L",
-        image: "/hero-bg.jpg",
+        image: "/fg.jpg",
         price: "12 000 FCFA", oldPrice: null,
+        note: 4.3
     },
     {
         id: 4, name: "Enceinte bluetooth Boom",
         image: "/hero-bg.jpg",
         price: "15 000 FCFA", oldPrice: "19 500 FCFA",
+        note: 4.3
     },
     {
         id: 5, name: "Lampe LED connectée",
-        image: "/hero-bg.jpg",
+        image: "/fg.jpg",
         price: "8 500 FCFA", oldPrice: null,
+        note: 4.3
     },
     {
         id: 6, name: "Basket Runner Neon",
         image: "/hero-bg.jpg",
         price: "22 000 FCFA", oldPrice: "28 000 FCFA",
+        note: 4.3
     },
 ];
 
@@ -56,7 +62,7 @@ const services = [
     {
         id: 1, icon: Truck,
         title: "Livraison rapide",
-        text: "Votre commande livrée en 24 à 72h sur toute la ville de Cotonou.",
+        text: "Votre commande livrée en 24 à 72h sur toute la sous région",
     },
     {
         id: 2, icon: ShieldCheck,
@@ -89,7 +95,7 @@ export default function Home() {
                 {/* ── Best sellers ─────────────────────────── */}
                 <section aria-label="Meilleures ventes">
                     <SectionTitle
-                        title="Best sellers"
+                        title="Meilleures ventes"
                         description="Les produits préférés de nos clients ce mois-ci"
                     />
 
@@ -98,18 +104,33 @@ export default function Home() {
                             bestSellers.map((product) => (
                                 <Card
                                     key={product.id}
-                                    icon={
-                                        <Heart size={20} />
+
+                                    banner = {
+                                        <>
+                                            <Heart className={style.bannerIcon}></Heart>
+                                            <ShoppingCartPlus className={style.bannerIcon}></ShoppingCartPlus>
+                                            <LinkIcon className={style.bannerIcon}></LinkIcon>
+                                            
+                                        </>
                                     }
-                                    stars={product.id}
+                                    
+
                                     header={
-                                        <Image className={style.productImage} width={1000} height={600} layout="responsive" src={product.image} alt={product.name} />
+                                        <Image className={style.productImage} width={1000} height={700} layout="responsive" src={product.image} alt={product.name} />
                                     }
+
                                     body={
                                         <>
-                                            <h3 className={style.productName}>{product.name}</h3>
+                                            <h3 className={style.productName}>
+                                                <strong>{product.name} </strong>
+                                                <div className={style.note}>
+                                                    {product.note} <Star size={17}></Star>
+                                                </div>
+                                            </h3>
+                                            <p className={style.description}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum hic, rem neque sit ut eum!</p>
+                                            
                                             <p className={style.productPrice}>
-                                                {product.price}
+                                                <strong>{product.price}</strong>
                                                 {product.oldPrice && (
                                                     <span className={style.productOldPrice}>
                                                         {product.oldPrice}
@@ -117,15 +138,6 @@ export default function Home() {
                                                 )}
                                             </p>
                                         </>
-                                    }
-                                    footer={
-                                        <Button
-                                            type="button"
-                                            variante="secondary-light"
-                                            size="sm"
-                                            icon={ShoppingCart}
-                                            desc=""
-                                        />
                                     }
                                 />
                             ))
@@ -150,18 +162,8 @@ export default function Home() {
                     <div className={style.categoryGrid}>
                         {
                             categories.map((category) => (
-                                <Link
-                                    key={category.id}
-                                    href={category.link}
-                                    className={style.categoryCard}
-                                >
-                                    <Image
-                                        width={600}
-                                        height={400}
-                                        layout="responsive"
-                                        src="/hero-bg.jpg"
-                                        alt={category.name}
-                                    />
+                                <Link key={category.id} href={category.link} className={style.categoryCard}>
+                                    <Image width={600} height={400} layout="responsive" src="/hero-bg.jpg" alt={category.name} />
                                     <div className={style.categoryOverlay}>
                                         <div>
                                             <h3 className={style.categoryName}>{category.name}</h3>
@@ -185,19 +187,10 @@ export default function Home() {
                                 <Percent size={14} />
                                 Vente flash
                             </span>
-                            <h2 className={style.promoTitle}>
-                                Jusqu'à -30% sur toute l'électronique
-                            </h2>
-                            <p className={style.promoText}>
-                                Profitez de nos meilleures offres avant le 31 octobre.
-                                Stock limité sur les articles en promotion.
-                            </p>
+                            <h2 className={style.promoTitle}> Jusqu'à -30% sur toute l'électronique </h2>
+                            <p className={style.promoText}> Profitez de nos meilleures offres avant le 31 octobre. Stock limité sur les articles en promotion.</p>
                         </div>
-                        <Button
-                            type="button"
-                            variante="warning"
-                            icon={ArrowRight}
-                            desc="Voir les promotions"
+                        <Button type="button" variante="warning" icon={ArrowRight} desc="Voir les promotions"
                         />
                     </div>
                 </section>

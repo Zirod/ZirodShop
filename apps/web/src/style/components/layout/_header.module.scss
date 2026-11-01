@@ -5,7 +5,7 @@
 */
 
 .appHead{
-    position: fixed;
+    position: relative;
     top: 0;right: 0;left: 0;
     @include z-header;
 }
@@ -78,14 +78,92 @@
 
 .mini_menue{
    @include flex-center-x;
+   @include relative;
    color: theme(primary);
-   @include gap(lg);
+   @include gap(md);
 }
 
 .mini_menueItem{
+    @include relative;
+    @include radius-full;
     list-style: none;
-    cursor: pointer;
 }
+
+.mini_menueBtn{
+    @include flex-center;
+    @include radius-full;
+    @include p(4);
+    @include transition-slow;
+    border: none;
+    width: 50px; height: 50px;
+    background: theme(background-secondary);
+    cursor: pointer;
+
+    &:hover,
+    &[aria-expanded="true"]{
+        background: theme(background-tertiary);
+    }
+}
+
 .mnColor{
-    color: theme(accent);
+    color: theme(primary);
+}
+
+/*
+    MINI MENUE POPOVER
+*/
+
+.miniPopover{
+    @include absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    @include z-popover;
+    @include radius-card;
+    @include p(3);
+    min-width: 300px;
+    background: theme(surface);
+    border: 1px solid theme(border);
+    box-shadow: theme(shadow-card);
+
+    &::before{
+        content: "";
+        @include absolute;
+        top: -6px;
+        right: 18px;
+        width: 12px; height: 12px;
+        background: theme(surface);
+        border-left: 1px solid theme(border);
+        border-top: 1px solid theme(border);
+        transform: rotate(45deg);
+    }
+}
+
+.miniPopoverTitle{
+    @include typography-label;
+    @include flex-center-x;
+    @include px(3);
+    @include pb(2);
+    color: theme(text-secondary);
+    border-bottom: 1px solid theme(border-light);
+}
+
+.miniPopoverLinks{
+    @include flex-column;
+    @include pt(2);
+    list-style: none;
+}
+
+.miniPopoverLink{
+    @include flex-center-y;
+    @include gap(3);
+    @include radius-md;
+    @include p(3);
+    @include transition-slow;
+    color: theme(text-primary);
+    text-decoration: none;
+
+    &:hover{
+        background: theme(background-secondary);
+        color: theme(primary);
+    }
 }

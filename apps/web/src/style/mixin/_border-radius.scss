@@ -1,10 +1,11 @@
 @use "../tokens/border-radius" as *;
+@use "./theme" as *;
 
 // ============================================================
 // BASE MIXINS
 // ============================================================
 
-@mixin border($width: thin, $style: solid, $color: null) {
+@mixin border($width: thin, $style: solid, $color: theme(border-dark)) {
   border-width: map-get(map-get($border, width), $width);
   border-style: map-get(map-get($border, style), $style);
 
